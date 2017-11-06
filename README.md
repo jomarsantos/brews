@@ -1,4 +1,4 @@
-## foundation
+## brews
 # Set Up
 - `npm install`
 - If running with local database:
