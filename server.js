@@ -1,3 +1,4 @@
+var config = require('./config');
 const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({
 
 // Database
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1:27017/brews';
+var mongoDB = config.mongoURL;
 mongoose.connect(mongoDB, {
 	useMongoClient: true
 });
@@ -40,7 +41,7 @@ app.get('/*', function response(req, res) {
 });
 
 // Initialize
-const server = app.listen(3000, function() {
+const server = app.listen(config.port, function() {
   const host = server.address().address;
   const port = server.address().port;
   console.log('App listening at http://%s:%s', host, port);

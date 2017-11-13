@@ -3,6 +3,7 @@ var router = express.Router();
 const Test = require('../models/Test');
 
 router.get('/', function (req, res) {
+	// req.query.id
 	Test.find({}, function (err, test) {
 	  if (err) {
 			return handleError(err)
