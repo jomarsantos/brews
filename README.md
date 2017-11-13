@@ -1,7 +1,7 @@
 ## brews
 # Set Up
 - `npm install`
-- If running with local database:
+- If running with local DB:
 	- Ensure mongodb is installed
 	- Start mongo daemon
 		- Option 1: In terminal
@@ -10,9 +10,12 @@
 			- If initial run, `mkdir ~/log`
 			- `mongod --fork --logpath ~/log/mongodb.log`
 - Update config.js with relevant info (ie. mongo URL)
-- `mongo`
 - If you want to populate the DB with test data:
 	- Run `node populateWithTestData.js`
+	- Check if DB was populated:
+		- `mongo`
+		- Switch to your DB: `use <db_name>`
+		- `show collections` / `db.breweries.find()`
 - Start:
 	- Development: `npm run dev`
 	- Production: `npm start`
