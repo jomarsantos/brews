@@ -3,7 +3,6 @@ var Brew = require('./models/Brew');
 var BrewCategory = require('./models/BrewCategory');
 var Brewery = require('./models/Brewery');
 var Lineup = require('./models/Lineup');
-var LineupBrew = require('./models/LineupBrew');
 var async = require('async');
 
 // Database Setup
@@ -21,13 +20,11 @@ Brewery.collection.drop();
 BrewCategory.collection.drop();
 Brew.collection.drop();
 Lineup.collection.drop();
-LineupBrew.collection.drop();
 
 var breweries = [];
 var brewCategories = [];
 var brews = [];
 var lineups = [];
-var lineupBrews = []
 
 console.log('Populating DB with test data.');
 
@@ -175,14 +172,14 @@ function createBrewSubCategories(cb) {
 // Brews
 //////////////////////
 
-function createBrew(name, description, percentage, brewery, category, cb) {
+function createBrew(name, description, percentage, brewery, categories, cb) {
 	var brewDetail = {
 		name: name,
 		brewery: brewery
 	};
   if (description != false) brewDetail.description = description;
 	if (percentage != false) brewDetail.percentage = percentage;
-	if (category != false) brewDetail.category = category;
+	if (categories != false) brewDetail.categories = categories;
 
   var brew = new Brew(brewDetail);
 
@@ -206,7 +203,7 @@ function createBrews(cb) {
 					'Super bitter beer.',
 					5.5,
 					breweries[0],
-					brewCategories[0],
+					[brewCategories[0]],
 					callback
 				);
 	    },
@@ -216,7 +213,7 @@ function createBrews(cb) {
 					'Real smooth beer.',
 					6.5,
 					breweries[0],
-					brewCategories[1],
+					[brewCategories[1]],
 					callback
 				);
 	    },
@@ -226,7 +223,7 @@ function createBrews(cb) {
 					'Overly fruity beer.',
 					4.5,
 					breweries[0],
-					brewCategories[2],
+					[brewCategories[2]],
 					callback
 				);
 	    },
@@ -236,7 +233,7 @@ function createBrews(cb) {
 					'Beer brewed from tears of joy.',
 					7,
 					breweries[1],
-					brewCategories[0],
+					[brewCategories[0]],
 					callback
 				);
 	    },
@@ -246,7 +243,7 @@ function createBrews(cb) {
 					'Beer brewed from the finest eggplants.',
 					5,
 					breweries[1],
-					brewCategories[1],
+					[brewCategories[1]],
 					callback
 				);
 	    }
@@ -259,10 +256,11 @@ function createBrews(cb) {
 // Lineup
 //////////////////////
 
-function createLineup(brewery, publishedDate, cb) {
+function createLineup(brewery, publishedDate, brews, cb) {
 	var lineupDetail = {
 		brewery: brewery,
-		publishedDate: publishedDate
+		publishedDate: publishedDate,
+		brews: brews
 	};
 
   var lineup = new Lineup(lineupDetail);
@@ -285,6 +283,7 @@ function createLineups(cb) {
 	      createLineup(
 					breweries[0],
 					Date.now(),
+					[brews[0], brews[1], brews[2]],
 					callback
 				);
 	    },
@@ -292,6 +291,7 @@ function createLineups(cb) {
 	      createLineup(
 					breweries[0],
 					Date.now(),
+					[brews[0], brews[1]],
 					callback
 				);
 	    },
@@ -299,6 +299,7 @@ function createLineups(cb) {
 	      createLineup(
 					breweries[1],
 					Date.now(),
+					[brews[3], brews[4]],
 					callback
 				);
 	    },
@@ -306,96 +307,10 @@ function createLineups(cb) {
 	      createLineup(
 					breweries[1],
 					Date.now(),
+					[brews[3]],
 					callback
 				);
 	    }
-    ],
-	  cb
-	);
-}
-
-//////////////////////
-// Lineup Brews
-//////////////////////
-
-function createLineupBrew(lineup, brew, cb) {
-	var lineupBrewDetail = {
-		lineup: lineup,
-		brew: brew
-	};
-
-  var lineupBrew = new LineupBrew(lineupBrewDetail);
-
-  lineupBrew.save(function (err) {
-    if (err) {
-      cb(err, null);
-      return;
-    }
-
-    console.log('New Lineup Brew: ' + lineupBrew);
-    lineupBrews.push(lineupBrew);
-    cb(null, lineupBrew);
-  });
-}
-
-function createLineupBrews(cb) {
-  async.parallel([
-	    function(callback) {
-	      createLineupBrew(
-					lineups[0],
-					brews[0],
-					callback
-				);
-	    },
-			function(callback) {
-				createLineupBrew(
-					lineups[0],
-					brews[1],
-					callback
-				);
-			},
-			function(callback) {
-	      createLineupBrew(
-					lineups[1],
-					brews[0],
-					callback
-				);
-	    },
-			function(callback) {
-				createLineupBrew(
-					lineups[1],
-					brews[1],
-					callback
-				);
-			},
-			function(callback) {
-	      createLineupBrew(
-					lineups[1],
-					brews[2],
-					callback
-				);
-	    },
-			function(callback) {
-				createLineupBrew(
-					lineups[2],
-					brews[3],
-					callback
-				);
-			},
-			function(callback) {
-	      createLineupBrew(
-					lineups[2],
-					brews[4],
-					callback
-				);
-	    },
-			function(callback) {
-				createLineupBrew(
-					lineups[3],
-					brews[3],
-					callback
-				);
-			}
     ],
 	  cb
 	);
@@ -449,7 +364,6 @@ async.series([
 		createBrewSubCategories,
 		createBrews,
 		createLineups,
-		createLineupBrews,
 		updateBreweryLineups
 	],
 	// Callback

@@ -29,9 +29,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Server
-var testRouter = require('./routes/testRoute.js');
+var currentBrewsRouter = require('./routes/currentBrews.js');
 var rootRouter = require('./routes/root.js');
-app.use('/api/test', testRouter);
+
+app.use('/api/currentBrews', currentBrewsRouter);
 app.use('/api', rootRouter);
 
 // Client
