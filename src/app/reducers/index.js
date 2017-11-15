@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import TestReducer from './reducers_test';
+import CurrentBrewsReducer from './reducers_current_brews';
 
 const rootReducer = combineReducers({
-  test: TestReducer
+  currentBrews: CurrentBrewsReducer
 });
 
 export default rootReducer;
