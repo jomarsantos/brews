@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
 	      path: 'brews',
 	      model: 'Brew',
 				select: {
-					'_id': 0,
+					'_id': 1,
 					'name': 1,
 					'description': 1,
 					'percentage': 1,

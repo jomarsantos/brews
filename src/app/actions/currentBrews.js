@@ -11,12 +11,14 @@ export function receiveCurrentBrews(json) {
 
 export function fetchCurrentBrews() {
   return function (dispatch) {
-    return fetch(`http://localhost:3000/api/currentBrews`)
+		// TODO: abstract endpoint out to config file
+    return fetch('http://localhost:3000/api/currentBrews')
       .then(
         response => response.json(),
         error => console.log('An error occured.', error)
       )
       .then(json =>
+				// TODO: handle errors
         dispatch(receiveCurrentBrews(json))
       )
   }
