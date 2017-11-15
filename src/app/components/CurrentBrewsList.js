@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const TestComponent = ({ id, brewery }) => {
+const CurrentBrewsList = ({ id, brewery }) => {
 	let brews = brewery.currentTapLineup.brews.map((brew, index) => {
 		return (
 			<li key={index}>
@@ -11,9 +12,7 @@ const TestComponent = ({ id, brewery }) => {
 	});
 	return (
 		<div id={id}>
-			<h1>
-				{brewery.name}
-			</h1>
+			<Link to={`/breweries/${brewery.code}`}>{brewery.name}</Link>
 			<ul>
 				{brews}
 			</ul>
@@ -21,4 +20,4 @@ const TestComponent = ({ id, brewery }) => {
 	);
 }
 
-export default TestComponent;
+export default CurrentBrewsList;

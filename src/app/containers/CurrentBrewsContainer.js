@@ -4,7 +4,7 @@ import { fetchCurrentBrews } from '../actions/currentBrews';
 import CurrentBrewsList from '../components/CurrentBrewsList';
 
 
-class AllCurrentBrewsBody extends Component {
+class CurrentBrewsContainer extends Component {
 	componentDidMount() {
 		this.props.fetchCurrentBrews();
 	}
@@ -24,7 +24,7 @@ class AllCurrentBrewsBody extends Component {
     }
 
 		return(
-			<div id='allCurrentBrewsBody'>
+			<div id='currentBrewsContainer'>
 				{ main }
 			</div>
 		);
@@ -47,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllCurrentBrewsBody);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentBrewsContainer);

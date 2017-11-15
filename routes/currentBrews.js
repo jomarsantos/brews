@@ -35,7 +35,7 @@ router.get('/', function (req, res) {
 				}
 	    }
 	  })
-		.select('name website')
+		.select('code name website')
 		.exec(function (err, lineups) {
 		  if (err) {
 				return console.log(err);

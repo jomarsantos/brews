@@ -32,8 +32,9 @@ console.log('Populating DB with test data.');
 // Breweries
 //////////////////////
 
-function createBrewery(name, description, address, city, province, country, postal, website, twitter, instagram, facebook, youtube, currentTapLineup, currentTakeoutLineup, cb) {
+function createBrewery(code, name, description, address, city, province, country, postal, website, twitter, instagram, facebook, youtube, currentTapLineup, currentTakeoutLineup, cb) {
 	var breweryDetail = {
+		code: code,
 		name: name
 	};
   if (description != false) breweryDetail.description = description;
@@ -68,6 +69,7 @@ function createBreweries(cb) {
   async.parallel([
 	    function(callback) {
 	      createBrewery(
+					'brewery1',
 					'Brewery 1',
 					'A cool brewery.',
 					'123 Fake Street',
@@ -87,6 +89,7 @@ function createBreweries(cb) {
 	    },
 			function(callback) {
 	      createBrewery(
+					'brewery2',
 					'Brewery 2',
 					'Another cool brewery.',
 					'456 Fake Street',
