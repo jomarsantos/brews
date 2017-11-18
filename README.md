@@ -1,5 +1,6 @@
 ## brews
 # Set Up
+- `cd /brews/src/server`
 - `npm install`
 - If running with local DB:
 	- Ensure mongodb is installed
