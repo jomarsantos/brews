@@ -17,7 +17,8 @@ var BrewerySchema = Schema({
 	facebook: {type: String, required: false},
 	youtube: {type: String, required: false},
 	currentTapLineup: {type: Schema.ObjectId, ref: 'Lineup', required: false},
-	currentTakeoutLineup: {type: Schema.ObjectId, ref: 'Lineup', required: false}
+	currentTakeoutLineup: {type: Schema.ObjectId, ref: 'Lineup', required: false},
+	importActivated: {type: Boolean, required: true},
 });
 
 module.exports = mongoose.model('Brewery', BrewerySchema);

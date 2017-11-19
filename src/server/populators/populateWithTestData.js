@@ -1,8 +1,8 @@
-var config = require('./config');
-var Brew = require('./models/Brew');
-var BrewCategory = require('./models/BrewCategory');
-var Brewery = require('./models/Brewery');
-var Lineup = require('./models/Lineup');
+var config = require('../config');
+var Brew = require('../models/Brew');
+var BrewCategory = require('../models/BrewCategory');
+var Brewery = require('../models/Brewery');
+var Lineup = require('../models/Lineup');
 var async = require('async');
 
 // Database Setup
@@ -32,10 +32,11 @@ console.log('Populating DB with test data.');
 // Breweries
 //////////////////////
 
-function createBrewery(code, name, description, address, city, province, country, postal, website, twitter, instagram, facebook, youtube, currentTapLineup, currentTakeoutLineup, cb) {
+function createBrewery(code, name, description, address, city, province, country, postal, website, twitter, instagram, facebook, youtube, currentTapLineup, currentTakeoutLineup, importActivated, cb) {
 	var breweryDetail = {
 		code: code,
-		name: name
+		name: name,
+		importActivated: importActivated
 	};
   if (description != false) breweryDetail.description = description;
 	if (address != false) breweryDetail.address = address;
@@ -84,6 +85,7 @@ function createBreweries(cb) {
 					false,
 					false,
 					false,
+					false,
 					callback
 				);
 	    },
@@ -98,6 +100,7 @@ function createBreweries(cb) {
 					'Canada',
 					'D4E5F6',
 					'https://www.brewery2.com',
+					false,
 					false,
 					false,
 					false,
