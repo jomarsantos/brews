@@ -29,7 +29,21 @@ function updateLineups(cb) {
 }
 
 function initialize(cb) {
-	Brewery.find({importActivated: 1}).select({code: 1}).exec().then(
+	var query = {};
+
+	// Handle single brewery update
+	if (process.argv.length == 3) {
+		query = {
+			code: process.argv[2],
+			importActivated: 1
+		};
+	} else {
+		query = {
+			importActivated: 1
+		};
+	}
+
+	Brewery.find(query).select({code: 1}).exec().then(
 		function(breweries) {
 			if (breweries.length > 0) {
 				breweries.forEach(function (brewery) {
@@ -64,10 +78,11 @@ async.series([
 	],
 	// Callback
 	function(err, results) {
+		console.log(updateLineupResults);
     if (err) {
       console.log('ERROR: Update did not successfully complete');
     } else {
-			console.log('Successfully updated lineups');
+			console.log('Update of lineups has completed');
 		}
 		console.log('Closing database connection');
     mongoose.connection.close();

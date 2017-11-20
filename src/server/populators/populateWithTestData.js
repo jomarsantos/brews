@@ -178,11 +178,12 @@ function createBrewSubCategories(cb) {
 // Brews
 //////////////////////
 
-function createBrew(name, description, percentage, brewery, categories, cb) {
+function createBrew(name, subtitle, description, percentage, brewery, categories, cb) {
 	var brewDetail = {
 		name: name,
 		brewery: brewery
 	};
+	if (subtitle != false) brewDetail.subtitle = subtitle;
   if (description != false) brewDetail.description = description;
 	if (percentage != false) brewDetail.percentage = percentage;
 	if (categories != false) brewDetail.categories = categories;
@@ -206,6 +207,7 @@ function createBrews(cb) {
 	    function(callback) {
 	      createBrew(
 					'Bitter AF',
+					false,
 					'Super bitter beer.',
 					5.5,
 					breweries[0],
@@ -216,6 +218,7 @@ function createBrews(cb) {
 			function(callback) {
 	      createBrew(
 					'Smooth AF',
+					false,
 					'Real smooth beer.',
 					6.5,
 					breweries[0],
@@ -226,6 +229,7 @@ function createBrews(cb) {
 			function(callback) {
 	      createBrew(
 					'Fruity AF',
+					false,
 					'Overly fruity beer.',
 					4.5,
 					breweries[0],
@@ -236,6 +240,7 @@ function createBrews(cb) {
 			function(callback) {
 	      createBrew(
 					'Tears of Joy',
+					false,
 					'Beer brewed from tears of joy.',
 					7,
 					breweries[1],
@@ -246,6 +251,7 @@ function createBrews(cb) {
 			function(callback) {
 	      createBrew(
 					'Eggplant Juices',
+					false,
 					'Beer brewed from the finest eggplants.',
 					5,
 					breweries[1],

@@ -36,6 +36,9 @@
 - To run lineup populators for all breweries:
 	- `cd src/server/populators`
 	- `node updateLineups.js`
+- To run lineup populators for a single brewery:
+	- `cd src/server/populators`
+	- `node updateLineups.js <brewery_code>`
 ### Clear All Collection (Only Suggested For Development)
 - To clear all database collections:
 	- `cd src/server/populators`

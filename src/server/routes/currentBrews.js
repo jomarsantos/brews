@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
 	    path: 'currentTapLineup currentTakeoutLineup',
 	    model: 'Lineup',
 			select: {
-				'_id': 0,
+				'_id': 1,
 				'publishedDate': 1,
 				'brews': 1,
 			},
