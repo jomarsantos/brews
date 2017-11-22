@@ -1,5 +1,5 @@
-const url = 'http://brassneck.ca';
-const code = 'brassneck';
+const url = 'http://33acresbrewing.com/our-beers/';
+const code = '33acres';
 const codeTag = '['+ code + '] ';
 const SUCCESS = 'Success';
 const FAIL = 'Fail';
@@ -51,7 +51,7 @@ function createSavePromise(tapBrew) {
 
 module.exports = {
   execute: function (callback) {
-		console.log(codeTag + '* UPDATE BRASSNECK LINEUPS *');
+		console.log(codeTag + '* UPDATE 33 ACRES LINEUPS *');
 
 		// Check if brewery exists in database
 		Brewery.find({code: code}).exec().then(
@@ -69,24 +69,22 @@ module.exports = {
 					axios.get(url).then(
 						function(response) {
 							var $ = cheerio.load(response.data);
-							$('#ontap-footer ul li .beertitle').each(
+							$('.beer-row .beer-info').each(
 								function(item) {
 									// Grab data for brew
-									var brewName = $(this).text().trim();
-									var brewSubtitle = $(this).parent().clone()
-										.find("span:contains('kind:')")
-										.parent().children().remove().end()
-										.text().trim();
-									var brewPercentage = $(this).parent().clone()
-										.find("span:contains('abv:')")
-										.parent().children().remove().end()
-										.text().replace('%', '').trim();
+									var brewName = $(this).find('h1').text();
+									var brewSubtitle = $(this).find("h4:contains('Style: ')")
+										.first().text().replace('Style: ', '').trim();
+									var brewPercentage = $(this).find("h4:contains('Alcohol: ')")
+										.first().text().replace('Alcohol: ', '').replace('% by volume', '').trim();
+									var brewDescription = $(this).find("h4:contains('Flavour: ')")
+										.first().text().replace('Flavour: ', '').trim()
 
 									// Create new brew
 									var brewDetail = {
 										name: brewName,
 										subtitle: brewSubtitle,
-										// description: brewDescription,
+										description: brewDescription,
 										percentage: brewPercentage,
 										brewery: brewery
 									};
@@ -146,8 +144,8 @@ module.exports = {
 					).catch(
 						function(err) {
 							// Request errored out
-							console.log(codeTag + 'ERROR: HTTP request was not successful');
-							errors.push('HTTP request was not successful.');
+							console.log(codeTag + 'ERROR: Could not handle request.');
+							errors.push('Could not handle request.');
 							return results(callback);
 						}
 					);;
