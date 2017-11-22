@@ -65,17 +65,29 @@ module.exports = {
 					/////////////////////
 
 					// Request main page
+					console.log(url);
 					axios.get(url).then(
-						function(response, err) {
+						function(response) {
 							var $ = cheerio.load(response.data);
 							$('#ontap-footer ul li .beertitle').each(
 								function(item) {
 									// Grab data for brew
 									var brewName = $(this).text().trim();
+									var brewSubtitle = $(this).parent().clone()
+										.find("span:contains('kind:')")
+										.parent().children().remove().end()
+										.text().trim();
+									var brewPercentage = $(this).parent().clone()
+										.find("span:contains('abv:')")
+										.parent().children().remove().end()
+										.text().replace('%', '').trim();
 
 									// Create new brew
 									var brewDetail = {
 										name: brewName,
+										subtitle: brewSubtitle,
+										// description: brewDescription,
+										percentage: brewPercentage,
 										brewery: brewery
 									};
 									var tapBrew = new Brew(brewDetail);

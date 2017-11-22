@@ -6,7 +6,7 @@ const CurrentBrewsList = ({ id, brewery }) => {
 		return (
 			<li key={index}>
 				<h2>{brew.name} - {brew.percentage}%</h2>
-				<p>{brew.description}</p>
+				<p>{brew.subtitle}</p>
 			</li>
 		);
 	});

@@ -21,6 +21,7 @@ router.get('/', function (req, res) {
 				select: {
 					'_id': 1,
 					'name': 1,
+					'subtitle': 1,
 					'description': 1,
 					'percentage': 1,
 					'categories': 1
