@@ -6,9 +6,9 @@ const FAIL = 'Fail';
 var axios = require('axios');
 var cheerio = require('cheerio');
 var q = require('q');
-var Brew = require('../models/Brew');
-var Brewery = require('../models/Brewery');
-var Lineup = require('../models/Lineup');
+var Brew = require('../../models/Brew');
+var Brewery = require('../../models/Brewery');
+var Lineup = require('../../models/Lineup');
 
 var errors = []
 

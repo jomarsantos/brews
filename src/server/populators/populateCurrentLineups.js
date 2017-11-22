@@ -1,6 +1,6 @@
 var config = require('../config');
 var Brewery = require('../models/Brewery');
-var populators = require('./populators');
+var populators = require('./breweryPopulators');
 var async = require('async');
 
 console.log('* UPDATING LINEUPS *');

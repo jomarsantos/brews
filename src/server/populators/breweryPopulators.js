@@ -1,6 +1,6 @@
 // List of populators
 
-var brassneck = require('./brassneck');
+var brassneck = require('./breweryPopulators/brassneck');
 
 // Property must match up with code of brewery
 module.exports = {

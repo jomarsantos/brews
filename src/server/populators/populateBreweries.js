@@ -1,5 +1,5 @@
 var config = require('../config');
-var breweries = require('./breweries');
+var breweries = require('./breweryIndex');
 var Brewery = require('../models/Brewery');
 var async = require('async');
 
