@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
+// Public Assets
+app.use(express.static(__dirname + '/public'));
+
 // Database
 var mongoose = require('mongoose');
 var mongoDB = config.mongoURL;

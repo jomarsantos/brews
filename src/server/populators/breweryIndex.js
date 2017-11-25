@@ -1,9 +1,12 @@
 //// Used to import breweries
 
+var config = require('../config');
+
 //// SCHEMA:
 //// NOTE: Set unused fields to false
 // {
 // 	code: '',
+//  logo: '',
 // 	name: '',
 // 	description: '',
 // 	address: '',
@@ -24,6 +27,7 @@
 module.exports = [
 	{
 		code: 'brassneck',
+		logo: config.baseURL + '/images/logo_brassneck.png',
 		name: 'Brassneck Brewery',
 		description: 'The public space at Brassneck, i.e. the Growler Shop & Tasting Room are designed to have you, our customers feel as though you are part of our process. The brew house & cellar wrap around the tasting room & growler shop putting you in the very heart of the Brewery.',
 		address: '2148 Main Street',
@@ -42,6 +46,7 @@ module.exports = [
 	},
 	{
 		code: '33acres',
+		logo: config.baseURL + '/images/logo_33acres.png',
 		name: '33 Acres Brewing Co.',
 		description: 'Our space is located in Vancouver near a synthesis of forest and the Pacific. Itʼs here weʼve carved out a space to foster collectivity and fine craft beer. We hold that quality product exists in solidarity with working among friends, family, and community. This is an inclusive space; we value innovation in both our craft and design. Our common area was created to align these fundamentals with the simple aesthetics of our surrounding environment.',
 		address: '15 W 8th Ave',

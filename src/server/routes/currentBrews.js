@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
 				}
 	    }
 	  })
-		.select('code name website')
+		.select('code logo name website')
 		.exec(function (err, lineups) {
 		  if (err) {
 				return console.log(err);

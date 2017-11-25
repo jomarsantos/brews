@@ -12,6 +12,7 @@ const CurrentBrewsList = ({ id, brewery }) => {
 	});
 	return (
 		<div id={id}>
+			<img src={brewery.logo} />
 			<Link to={`/breweries/${brewery.code}`}>{brewery.name}</Link>
 			<ul>
 				{brews}

@@ -22,7 +22,7 @@ var createFunctions = [];
 // Breweries
 //////////////////////
 
-function createBrewery(code, name, description, address, city, province, country, postal, website, twitter, instagram, facebook, youtube, currentTapLineup, currentTakeoutLineup, importActivated, cb) {
+function createBrewery(code, logo, name, description, address, city, province, country, postal, website, twitter, instagram, facebook, youtube, currentTapLineup, currentTakeoutLineup, importActivated, cb) {
 	Brewery.find({code: code}).exec().then(
 		function(res) {
 			if (res.length > 0) {
@@ -34,6 +34,7 @@ function createBrewery(code, name, description, address, city, province, country
 					name: name,
 					importActivated: importActivated
 				};
+				if (logo != false) breweryDetail.logo = logo;
 				if (description != false) breweryDetail.description = description;
 				if (address != false) breweryDetail.address = address;
 				if (city != false) breweryDetail.city = city;
@@ -75,6 +76,7 @@ function initialize(cb) {
 			function(callback) {
 	      createBrewery(
 					brewery.code,
+					brewery.logo,
 					brewery.name,
 					brewery.description,
 					brewery.address,
