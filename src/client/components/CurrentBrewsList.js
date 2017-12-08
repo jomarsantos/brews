@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import style from '../styles/main.scss';
 import util from '../util';
 
 const CurrentBrewsList = ({ id, brewery }) => {
@@ -8,7 +9,7 @@ const CurrentBrewsList = ({ id, brewery }) => {
 		return (
 			<li key={index}>
 				<h2>{brew.name} - {brew.percentage}%</h2>
-				<p>{brew.subtitle}</p>
+				<p className='brewSubtitle'>{brew.subtitle}</p>
 			</li>
 		);
 	});

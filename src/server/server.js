@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Public Assets
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.resolve(__dirname, '../../public')));
 
 // Database
 var mongoose = require('mongoose');
