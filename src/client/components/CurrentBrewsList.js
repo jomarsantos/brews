@@ -8,19 +8,25 @@ const CurrentBrewsList = ({ id, brewery }) => {
 	let brews = brewery.currentTapLineup.brews.map((brew, index) => {
 		return (
 			<li key={index}>
-				<h2>{brew.name} - {brew.percentage}%</h2>
+				<h2 className='brewName'>{brew.name} - {brew.percentage}%</h2>
 				<p className='brewSubtitle'>{brew.subtitle}</p>
 			</li>
 		);
 	});
 	return (
-		<div id={id}>
-			<img src={brewery.logo} />
-			<h1><Link to={`/breweries/${brewery.code}`}>{brewery.name}</Link></h1>
-			<p>Last Updated: {lastUpdated}</p>
-			<ul>
-				{brews}
-			</ul>
+		<div className='currentBrewsList' id={id}>
+			<div className='header'>
+				<Link to={`/breweries/${brewery.code}`}><img className='breweryLogo' src={brewery.logo} /></Link>
+				<div className='breweryDetails'>
+					<Link to={`/breweries/${brewery.code}`}><h1 className='breweryName'>{brewery.name}</h1></Link>
+					<p className='lastUpdated'>LAST UPDATED: {lastUpdated}</p>
+				</div>
+			</div>
+			<div className='brews'>
+				<ul>
+					{brews}
+				</ul>
+			</div>
 		</div>
 	);
 }
