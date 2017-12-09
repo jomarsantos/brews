@@ -41,10 +41,11 @@ body {
 
 #currentBrewsMain {
 	width: 100%;
+	margin: $headerHeight 0 0 0;
 }
 
 #currentBrewsContainer {
-	margin: $headerHeight 0 0 0;
+	margin: 0;
 	padding: 10px;
 	display: flex;
 	flex-direction: column;

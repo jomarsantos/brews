@@ -16,7 +16,14 @@ class CurrentBrewsContainer extends Component {
     if (isLoading) {
       main = <p>Loading</p>;
     } else {
-      main = this.props.brews.map((brewery, index) => {
+			let brews = [];
+			if (this.props.filteredBrews.length != 0) {
+				brews = this.props.filteredBrews;
+			} else {
+				brews = this.props.brews;
+			}
+
+      main = brews.map((brewery, index) => {
 				return (
 					<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
 				);
@@ -35,6 +42,7 @@ const mapStateToProps = (state) => {
   return {
     status: state.currentBrews.loading,
 		brews: state.currentBrews.brews,
+		filteredBrews: state.currentBrews.filteredBrews,
 		receivedAt: state.currentBrews.receivedAt
   };
 }

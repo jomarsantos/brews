@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Header from '../components/Header';
+import CurrentBrewsFilter from '../containers/CurrentBrewsFilter';
 import CurrentBrewsContainer from '../containers/CurrentBrewsContainer';
 
 class CurrentBrewsMain extends Component {
@@ -8,6 +9,7 @@ class CurrentBrewsMain extends Component {
     return (
 			<div id='currentBrewsMain'>
 				<Header />
+				<CurrentBrewsFilter />
 				<CurrentBrewsContainer />
 			</div>
     );
