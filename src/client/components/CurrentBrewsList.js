@@ -8,21 +8,21 @@ const CurrentBrewsList = ({ id, brewery }) => {
 	let brews = brewery.currentTapLineup.brews.map((brew, index) => {
 		return (
 			<li key={index}>
-				<h2 className='brewName'>{brew.name} - {brew.percentage}%</h2>
-				<p className='brewSubtitle'>{brew.subtitle}</p>
+				<h2 className='currentBrewsList-brewName'>{brew.name} - {brew.percentage}%</h2>
+				<p className='currentBrewsList-brewSubtitle'>{brew.subtitle}</p>
 			</li>
 		);
 	});
 	return (
 		<div className='currentBrewsList' id={id}>
-			<div className='header'>
-				<Link to={`/breweries/${brewery.code}`}><img className='breweryLogo' src={brewery.logo} /></Link>
-				<div className='breweryDetails'>
-					<Link to={`/breweries/${brewery.code}`}><h1 className='breweryName'>{brewery.name}</h1></Link>
-					<p className='lastUpdated'>LAST UPDATED: {lastUpdated}</p>
+			<div className='currentBrewsList-header'>
+				<Link to={`/breweries/${brewery.code}`}><img className='currentBrewsList-breweryLogo' src={brewery.logo} /></Link>
+				<div className='currentBrewsList-breweryDetails'>
+					<Link to={`/breweries/${brewery.code}`}><h1 className='currentBrewsList-breweryName'>{brewery.name}</h1></Link>
+					<p className='currentBrewsList-lastUpdated'>Updated: {lastUpdated}</p>
 				</div>
 			</div>
-			<div className='brews'>
+			<div className='currentBrewsList-brews'>
 				<ul>
 					{brews}
 				</ul>
