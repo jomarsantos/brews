@@ -29,9 +29,10 @@ export function receiveCurrentBrews(brews) {
 export function filterCurrentBrews(breweryInput, brewInput) {
   return (dispatch, getState) => {
     const state = getState();
+
+		// Make a deep copy of the current brews from state
 		var filteredBrews = JSON.parse(JSON.stringify(state.currentBrews.brews));
 
-		console.log('entire list: ', filteredBrews);
 		if (breweryInput) {
 			filteredBrews = filteredBrews.filter(brewery => {
 				return brewery.name.toLowerCase().indexOf(breweryInput) !== -1;
@@ -46,10 +47,17 @@ export function filterCurrentBrews(breweryInput, brewInput) {
 				})
 				filteredBrews[index].currentTapLineup.brews = filteredBrewsOfBrewery;
 			})
+
+			filteredBrews = filteredBrews.filter(brewery => {
+				return brewery.currentTapLineup.brews.length !== 0;
+			})
 		}
 
-		// return -1 if no filtered brews
-		console.log(filteredBrews);
+		// No results, return error
+		if (filteredBrews.length === 0) {
+			filteredBrews = -1;
+		}
+
 		dispatch(updateFilteredBrews(filteredBrews));
   };
 }

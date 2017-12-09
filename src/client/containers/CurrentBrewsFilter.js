@@ -23,9 +23,6 @@ class CurrentBrewsFilter extends Component {
 	filter() {
 		let breweryInput = this.state.breweryInput.trim().toLowerCase();
 		let brewInput = this.state.brewInput.trim().toLowerCase();
-		if (!breweryInput && !brewInput) {
-			return;
-		}
 
 		this.props.filterCurrentBrews(breweryInput, brewInput);
 	}

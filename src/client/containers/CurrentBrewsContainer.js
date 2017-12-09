@@ -17,17 +17,20 @@ class CurrentBrewsContainer extends Component {
       main = <p>Loading</p>;
     } else {
 			let brews = [];
-			if (this.props.filteredBrews.length != 0) {
-				brews = this.props.filteredBrews;
+			if (this.props.filteredBrews === -1) {
+				main = <p>No Results</p>;
 			} else {
-				brews = this.props.brews;
+				if (this.props.filteredBrews.length != 0) {
+					brews = this.props.filteredBrews;
+				} else {
+					brews = this.props.brews;
+				}
+				main = brews.map((brewery, index) => {
+					return (
+						<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
+					);
+				})
 			}
-
-      main = brews.map((brewery, index) => {
-				return (
-					<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
-				);
-			})
     }
 
 		return(
