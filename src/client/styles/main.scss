@@ -105,12 +105,15 @@ body {
 			list-style-type: none;
 			text-align: left;
 
+			&.lessThanThreeBrews {
+				text-align: center;
+			}
+
 			li {
 				padding: 5px;
 				width: 310px;
-				display: inline-block;
 				text-align: center;
-				vertical-align: top;
+				display: inline-block;
 			}
 		}
 

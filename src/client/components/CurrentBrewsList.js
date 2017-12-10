@@ -13,6 +13,11 @@ const CurrentBrewsList = ({ id, brewery }) => {
 			</li>
 		);
 	});
+
+	function hasLessThanThreeBrews(numBrews) {
+		return numBrews < 3;
+	}
+
 	return (
 		<div className='currentBrewsList' id={id}>
 			<div className='currentBrewsList-header'>
@@ -23,7 +28,7 @@ const CurrentBrewsList = ({ id, brewery }) => {
 				</div>
 			</div>
 			<div className='currentBrewsList-brews'>
-				<ul>
+				<ul className={"" + (hasLessThanThreeBrews(brews.length) ? 'lessThanThreeBrews' : '')}>
 					{brews}
 				</ul>
 			</div>
