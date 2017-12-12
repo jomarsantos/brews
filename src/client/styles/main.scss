@@ -61,6 +61,7 @@ body {
 		background-color: $containerBackgroundColor;
 		border-style: none;
 		border: 2px solid $containerBackgroundColor;
+		text-transform: uppercase;
 	}
 
 	input::placeholder {
@@ -91,6 +92,7 @@ body {
 
 	button:focus {
 		outline: 0;
+		border: 2px solid $lightFontColor;
 	}
 }
 
