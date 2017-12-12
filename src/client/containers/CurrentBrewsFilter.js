@@ -43,9 +43,10 @@ class CurrentBrewsFilter extends Component {
 	render() {
 		return(
 			<div id='currentBrewsFilter'>
-				<input type="text" placeholder="Brewery" name="title" value={this.state.breweryInput} onChange={this.handleBreweryChange.bind(this)}/>
-				<input type="text" placeholder="Brew" name="title" value={this.state.brewInput} onChange={this.handleBrewChange.bind(this)}/>
-				<button type="button" onClick={this.clear.bind(this)} className="">Clear</button>
+				<p>FILTER</p>
+				<input type="text" placeholder="BREWERY" name="title" value={this.state.breweryInput} onChange={this.handleBreweryChange.bind(this)}/>
+				<input type="text" placeholder="BREW" name="title" value={this.state.brewInput} onChange={this.handleBrewChange.bind(this)}/>
+				<button type="button" onClick={this.clear.bind(this)} className="">CLEAR</button>
 			</div>
 		);
 	}

@@ -1,5 +1,6 @@
 $font: 'Roboto Slab', serif;
 $primaryFontColor: #000000;
+$invertedFontColor: #ffffff;
 $lightFontColor: #cdcdcd;
 
 $headerBackgroundcolor: #ffffff;
@@ -7,9 +8,95 @@ $containerBackgroundColor: #ffffff;
 $backgroundColor: #fafafa;
 $headerHeight: 60px;
 
+///////////////////////
+// General
+///////////////////////
+
 body {
 	margin: 0;
 }
+
+///////////////////////
+// Pages
+///////////////////////
+
+#currentBrewsMain {
+	width: 100%;
+	margin: $headerHeight 0 0 0;
+}
+
+///////////////////////
+// Containers
+///////////////////////
+
+#currentBrewsContainer {
+	margin: 0;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	background-color: $backgroundColor;
+}
+
+#currentBrewsFilter {
+	background-color: $backgroundColor;
+	padding-top: 15px;
+	text-align: center;
+
+	p {
+		height: 20px;
+		width: 80px;
+		margin: 10px;
+		display: inline-block;
+		padding: 15px 20px;
+		font: 16px $font;
+		color: $lightFontColor;
+		letter-spacing: 2px;
+	}
+
+	input {
+		height: 20px;
+		margin: 10px;
+		padding: 25px 20px;
+		font: 16px $font;
+		background-color: $containerBackgroundColor;
+		border-style: none;
+		border: 2px solid $containerBackgroundColor;
+	}
+
+	input::placeholder {
+		color: $lightFontColor;
+	}
+
+	input:focus {
+		outline: none;
+		border: 2px solid $lightFontColor;
+	}
+
+	button {
+		display: inline-block;
+		height: 20px;
+		width: 120px;
+		margin: 10px;
+		padding: 15px 20px 35px 20px;
+		font: 16px $font;
+		background-color: $containerBackgroundColor;
+		border: 2px solid $containerBackgroundColor;
+		color: $lightFontColor;
+		cursor: pointer;
+	}
+
+	button:hover {
+		border: 2px solid $lightFontColor;
+	}
+
+	button:focus {
+		outline: 0;
+	}
+}
+
+///////////////////////
+// Components
+///////////////////////
 
 #header {
 	height: 60px;
@@ -37,19 +124,6 @@ body {
 		font: 16px $font;
 		letter-spacing: 2px;
 	}
-}
-
-#currentBrewsMain {
-	width: 100%;
-	margin: $headerHeight 0 0 0;
-}
-
-#currentBrewsContainer {
-	margin: 0;
-	padding: 10px;
-	display: flex;
-	flex-direction: column;
-	background-color: $backgroundColor;
 }
 
 .currentBrewsList {
@@ -83,6 +157,7 @@ body {
 		margin: 0;
 		font: 16px $font;
 		color: $primaryFontColor;
+		text-transform: uppercase;
 	}
 
 	&-lastUpdated {
@@ -137,12 +212,10 @@ body {
 	&-brewname {
 		margin: 0;
 		font: 12px $font;
-		text-transform: uppercase;
 	}
 
 	&-brewSubtitle {
 		margin: 0;
 		font: 10px $font;
-		font-style: italic;
 	}
 }
