@@ -81,5 +81,24 @@ module.exports = [
 		currentTapLineup: false,
 		currentTakeoutLineup: false,
 		importActivated: true
+	},
+	{
+		code: 'steelandoak',
+		logo: config.baseURL + '/images/logo_steelandoak_dark.png',
+		name: 'Steel & Oak Brewing Co.',
+		description: 'Steel & Oak Brewing Co. embodies the modernness of today while remaining dedicated to the craftsmanship of years long past. Materials of strength and durability, steel and oak; house, protect and nurture what we stand for most – exceptional tasting craft beer.',
+		address: '1319 Third Ave',
+		city: 'New Westminister',
+		province: 'BC',
+		country: 'Canada',
+		postal: false,
+		website: 'https://steelandoak.ca/',
+		twitter: 'steelandoak',
+		instagram: 'steelandoak',
+		facebook: 'https://www.facebook.com/steelandoak',
+		youtube: false,
+		currentTapLineup: false,
+		currentTakeoutLineup: false,
+		importActivated: true
 	}
 ]

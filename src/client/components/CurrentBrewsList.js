@@ -6,9 +6,15 @@ import util from '../util';
 const CurrentBrewsList = ({ id, brewery }) => {
 	let lastUpdated = util.formatDate(brewery.currentTapLineup.publishedDate);
 	let brews = brewery.currentTapLineup.brews.map((brew, index) => {
+		let percentage = '';
+		if (brew.percentage !== -1) {
+			percentage =  "- " + brew.percentage + "%";
+		}
+
 		return (
 			<li key={index}>
-				<h2 className='currentBrewsList-brewName'>{brew.name} - {brew.percentage}%</h2>
+
+				<h2 className='currentBrewsList-brewName'>{brew.name + percentage}</h2>
 				<p className='currentBrewsList-brewSubtitle'>{brew.subtitle}</p>
 			</li>
 		);
