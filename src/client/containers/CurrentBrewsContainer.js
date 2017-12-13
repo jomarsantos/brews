@@ -18,7 +18,7 @@ class CurrentBrewsContainer extends Component {
     } else {
 			let brews = [];
 			if (this.props.filteredBrews === -1) {
-				main = <p>No Results</p>;
+				main = <div className='noResults'><p>No matches. Please try another search.</p></div>;
 			} else {
 				if (this.props.filteredBrews.length != 0) {
 					brews = this.props.filteredBrews;

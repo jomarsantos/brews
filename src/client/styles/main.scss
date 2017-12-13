@@ -14,6 +14,7 @@ $headerHeight: 60px;
 
 body {
 	margin: 0;
+	background-color: $backgroundColor;
 }
 
 ///////////////////////
@@ -35,6 +36,15 @@ body {
 	display: flex;
 	flex-direction: column;
 	background-color: $backgroundColor;
+
+	.noResults {
+		margin: 10px;
+		padding: 30px 20px;
+		background-color: $containerBackgroundColor;
+		font: 16px $font;
+		color: $lightFontColor;
+		text-align: center;
+	}
 }
 
 #currentBrewsFilter {
