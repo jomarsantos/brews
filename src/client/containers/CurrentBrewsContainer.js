@@ -25,7 +25,9 @@ class CurrentBrewsContainer extends Component {
 				} else {
 					brews = this.props.brews;
 				}
-				main = brews.map((brewery, index) => {
+				main = brews.filter((brewery) => {
+					return brewery.hasOwnProperty('currentTapLineup');
+				}).map((brewery, index) => {
 					return (
 						<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
 					);
