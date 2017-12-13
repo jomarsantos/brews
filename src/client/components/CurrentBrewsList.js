@@ -8,7 +8,7 @@ const CurrentBrewsList = ({ id, brewery }) => {
 	let brews = brewery.currentTapLineup.brews.map((brew, index) => {
 		let percentage = '';
 		if (brew.percentage !== -1) {
-			percentage =  "- " + brew.percentage + "%";
+			percentage =  " - " + brew.percentage + "%";
 		}
 
 		return (
