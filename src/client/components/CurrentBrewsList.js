@@ -34,7 +34,7 @@ const CurrentBrewsList = ({ id, brewery }) => {
 				</div>
 			</div>
 			<div className='currentBrewsList-brews'>
-				<ul className={"" + (hasLessThanThreeBrews(brews.length) ? 'lessThanThreeBrews' : '')}>
+				<ul>
 					{brews}
 				</ul>
 			</div>

@@ -25,13 +25,50 @@ class CurrentBrewsContainer extends Component {
 				} else {
 					brews = this.props.brews;
 				}
-				main = brews.filter((brewery) => {
+				brews = brews.filter((brewery) => {
 					return brewery.hasOwnProperty('currentTapLineup');
-				}).map((brewery, index) => {
-					return (
-						<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
-					);
+				});
+
+				// Order breweries from most brews to least
+				function numBrewsCompare(a, b) {
+				  if (a.currentTapLineup.brews.length > b.currentTapLineup.brews.length) {
+						return -1;
+					} else {
+						return 1;
+					}
+				}
+				brews.sort(numBrewsCompare);
+
+				// Distribute breweries over 6 columns
+				let columns = [[],[],[],[],[],[]];
+				brews.forEach((brewery, index) => {
+					let column = ((index)%columns.length);
+					columns[column].push(brewery);
 				})
+
+				// Add breweries to columns
+				columns.forEach((column, index) => {
+					columns[index] = column.map((brewery, index) => {
+						return (
+							<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
+						);
+					});
+				})
+
+				// Create columns
+				let columnElements = columns.map((column, index) => {
+					return (
+						<div className='currentBrewsContainer-column' key={index}>
+							{ column }
+						</div>
+					);
+				});
+
+				main = (
+					<div id='currentBrewsContainer-columns'>
+						{ columnElements }
+					</div>
+				);
 			}
     }
 
