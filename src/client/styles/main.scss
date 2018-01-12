@@ -1,10 +1,11 @@
 $font: 'Source Sans Pro', sans-serif;
 $primaryFontColor: #000000;
 $invertedFontColor: #ffffff;
-$lightFontColor: #cdcdcd;
+$lightFontColor: #b9b9b9;
 
-$headerBackgroundcolor: #ffffff;
+$headerBackgroundcolor: #D8D8D8;
 $containerBackgroundColor: #D8D8D8;
+$containerElementBackgroundColor: #C5C3C3;
 $backgroundColor: #96875F;
 $headerHeight: 60px;
 
@@ -34,6 +35,7 @@ body {
 	margin: 0;
 	padding: 10px;
 	background-color: $backgroundColor;
+	text-align: center;
 
 	.noResults {
 		margin: 10px;
@@ -44,11 +46,14 @@ body {
 		text-align: center;
 	}
 
-	.currentBrewsContainer-columns {
+	#currentBrewsContainer-columns {
+		width: 900px;
+		margin: 0 auto;
 	}
 
 	.currentBrewsContainer-column {
-		width: 33%;
+		width: 280px;
+		margin: 10px;
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -149,27 +154,30 @@ body {
 	break-inside: avoid;
   box-sizing: border-box;
 	width: 100%;
-	margin: 0px;
+	margin: 70px 0 20px 0;
 	padding: 0;
 	background-color: $containerBackgroundColor;
 	font: 14px $font;
 	border-radius: 10px;
 
 	&-header {
-		margin-top: 20px;
-		text-align: center;
+		padding: 10px 10px 0;
 	}
 
 	&-breweryLogo {
+		margin-top: -60px;
 		height: 80px;
 		width: 80px;
 		border-radius: 100%;
+		border-style: solid;
+		border-color: #FFFFFF;
+		border-width: 3px;
 	}
 
 	&-breweryDetails {
 		height: 40px;
 		width: 100%;
-		padding: 10px 0;
+		padding: 10px 0 0 0;
 
 		a {
 			text-decoration: none;
@@ -192,8 +200,7 @@ body {
 
 	&-brews {
 		margin: auto;
-		padding: 10px;
-		margin-bottom: 20px;
+		padding: 0 10px 10px 10px;
 		text-align: center;
 
 		ul {
@@ -204,21 +211,23 @@ body {
 
 
 			li {
-				padding: 5px;
-				width: 310px;
-				text-align: center;
+				background-color: $containerElementBackgroundColor;
+				border-radius: 10px;
+				padding: 10px;
+				margin-top: 10px;
+				text-align: left;
 			}
 		}
 	}
 
 	&-brewname {
 		margin: 0;
-		font: 12px $font;
+		font: 14px $font;
 	}
 
 	&-brewSubtitle {
 		margin: 0;
-		font: 10px $font;
+		font: 12px $font;
 		font-weight: 300;
 	}
 }
