@@ -1,13 +1,30 @@
+// General
 $font: 'Source Sans Pro', sans-serif;
 $primaryFontColor: #000000;
 $invertedFontColor: #ffffff;
 $lightFontColor: #b9b9b9;
 
-$headerBackgroundcolor: #D8D8D8;
-$containerBackgroundColor: #D8D8D8;
-$containerElementBackgroundColor: #C5C3C3;
-$backgroundColor: #96875F;
+$backgroundColor: #282828;
+
+// Header
 $headerHeight: 60px;
+$headerBackgroundcolor: darken($backgroundColor, 2%);
+$headerTextColor: $lightFontColor;
+
+// Brews
+$containerBackgroundColor: #73684b;
+$containerElementBackgroundColor: #887e62;
+$brewsHeaderTextColor: $primaryFontColor;
+$brewsUpdatedTextColor: $primaryFontColor;
+$brewsTextColor: $primaryFontColor;
+
+// Filter
+$filterBackgroundColor: darken($backgroundColor, 1%);
+$filterBorderInactiveColor: lighten($backgroundColor, 2%);
+$filterBorderActiveColor: lighten($backgroundColor, 10%);
+$filterInputTextColor: lighten($backgroundColor, 10%);
+$filterPlaceholderTextColor: lighten($backgroundColor, 3%);
+$filterLabelTextColor: lighten($backgroundColor, 4%);
 
 ///////////////////////
 // General
@@ -71,7 +88,7 @@ body {
 		display: inline-block;
 		padding: 15px 20px;
 		font: 16px $font;
-		color: $lightFontColor;
+		color: $filterLabelTextColor;
 		letter-spacing: 2px;
 	}
 
@@ -80,41 +97,46 @@ body {
 		margin: 10px;
 		padding: 25px 20px;
 		font: 16px $font;
-		background-color: $containerBackgroundColor;
+		border-radius: 40px;
+		background-color: $filterBackgroundColor;
 		border-style: none;
-		border: 2px solid $containerBackgroundColor;
+		border: 2px solid $filterBorderInactiveColor;
 		text-transform: uppercase;
+		color: $filterInputTextColor;
 	}
 
 	input::placeholder {
-		color: $lightFontColor;
+		color: $filterPlaceholderTextColor;
+	}
+
+	input:hover {
+		border: 2px solid $filterBorderActiveColor;
 	}
 
 	input:focus {
 		outline: none;
-		border: 2px solid $lightFontColor;
+		border: 2px solid $filterBorderActiveColor;
 	}
 
 	button {
 		display: inline-block;
-		height: 20px;
-		width: 120px;
 		margin: 10px;
-		padding: 15px 20px 35px 20px;
+		padding: 15px 18px;
 		font: 16px $font;
-		background-color: $containerBackgroundColor;
-		border: 2px solid $containerBackgroundColor;
-		color: $lightFontColor;
+		background-color: $filterBackgroundColor;
+		border: 2px solid $filterBorderInactiveColor;
+		color: $filterInputTextColor;
 		cursor: pointer;
+		border-radius: 100%;
 	}
 
 	button:hover {
-		border: 2px solid $lightFontColor;
+		border: 2px solid $filterBorderActiveColor;
 	}
 
 	button:focus {
 		outline: 0;
-		border: 2px solid $lightFontColor;
+		border: 2px solid $filterBorderActiveColor;
 	}
 }
 
@@ -129,16 +151,16 @@ body {
 	left: 0;
 	top: 0;
 	background-color: $headerBackgroundcolor;
-	color:$primaryFontColor;
+	color: $headerTextColor;
 	text-align: center;
 
 	a {
 		text-decoration: none;
-		color: $primaryFontColor;
+		color: $headerTextColor;
 	}
 
 	a:visited {
-		color: $primaryFontColor;
+		color: $headerTextColor;
 	}
 
 	h1 {
@@ -159,6 +181,7 @@ body {
 	background-color: $containerBackgroundColor;
 	font: 14px $font;
 	border-radius: 10px;
+	color: $brewsTextColor;
 
 	&-header {
 		padding: 10px 10px 0;
@@ -171,7 +194,7 @@ body {
 		border-radius: 100%;
 		border-style: solid;
 		border-color: #FFFFFF;
-		border-width: 3px;
+		border-width: 4px;
 	}
 
 	&-breweryDetails {
@@ -187,14 +210,14 @@ body {
 	&-breweryName {
 		margin: 0;
 		font: 16px $font;
-		color: $primaryFontColor;
+		color: $brewsHeaderTextColor;
 		text-transform: uppercase;
 	}
 
 	&-lastUpdated {
 		margin: 0;
 		font: 11px $font;
-		color: $lightFontColor;
+		color: $brewsUpdatedTextColor;
 	}
 
 

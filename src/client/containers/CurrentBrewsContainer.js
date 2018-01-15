@@ -39,7 +39,7 @@ class CurrentBrewsContainer extends Component {
 				}
 				brews.sort(numBrewsCompare);
 
-				// Distribute breweries over 6 columns
+				// Distribute breweries over 3 columns
 				let columns = [[],[],[]];
 				brews.forEach((brewery, index) => {
 					let column = ((index)%columns.length);
