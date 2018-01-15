@@ -41,9 +41,18 @@ class CurrentBrewsContainer extends Component {
 
 				// Distribute breweries over 3 columns
 				let columns = [[],[],[]];
+				let numBrews = [0, 0, 0];
 				brews.forEach((brewery, index) => {
-					let column = ((index)%columns.length);
+					let column = 0;
+					if (numBrews[1] < numBrews[column]) {
+						column = 1;
+					}
+					if (numBrews[2] < numBrews[column]) {
+						column = 2;
+					}
+
 					columns[column].push(brewery);
+					numBrews[column] += brewery.currentTapLineup.brews.length;
 				})
 
 				// Add brewery lineups to columns
