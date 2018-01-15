@@ -28,7 +28,10 @@ class LoginButton extends Component {
     if (!this.FB) {
 			return;
 		} else {
-			this.FB.login(this.facebookLoginHandler, {scope: 'public_profile'});
+			this.FB.login(this.facebookLoginHandler, {
+				auth_type: 'reauthenticate',
+				scope: 'public_profile'
+			});
 		}
   }
 
