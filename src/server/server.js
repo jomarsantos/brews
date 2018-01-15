@@ -33,9 +33,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Server
 var currentBrewsRouter = require('./routes/currentBrews.js');
+var facebookLoginRouter = require('./routes/facebookLogin.js');
 var rootRouter = require('./routes/root.js');
-
+// Routes
 app.use('/api/currentBrews', currentBrewsRouter);
+app.use('/api/fbLogin', facebookLoginRouter);
 app.use('/api', rootRouter);
 
 // Client
