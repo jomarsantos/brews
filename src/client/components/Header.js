@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import style from '../styles/main.scss';
+import LoginButton from '../components/LoginButton';
 
-const Header = () => {
-	return (
-		<div id='header'>
-			<Link to='/'><h1>BREWING IN VANCOUVER</h1></Link>
-		</div>
-	);
+class Header extends Component {
+	render() {
+		let buttonText = 'Login via Facebook';
+		if (this.props.user.name) {
+			buttonText = this.props.user.name;
+		}
+
+		return(
+			<div id='header'>
+				<Link to='/'><h1>BREWING IN VANCOUVER</h1></Link>
+				<LoginButton>
+					<button>{buttonText}</button>
+				</LoginButton>
+			</div>
+		);
+	}
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user.user
+  };
+}
+
+export default connect(mapStateToProps, null)(Header);
