@@ -3,7 +3,7 @@ export const LOGIN = 'LOGIN';
 export function login(fbUserId, fbAccessToken) {
   return function (dispatch) {
 		// TODO: abstract endpoint out to config file
-    return fetch('http://localhost:3000/api/login', {
+    return fetch('/api/login', {
         method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

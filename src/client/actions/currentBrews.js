@@ -4,8 +4,7 @@ export const CLEAR_FILTERED_BREWS = 'CLEAR_FILTERED_BREWS';
 
 export function fetchCurrentBrews() {
   return function (dispatch) {
-		// TODO: abstract endpoint out to config file
-    return fetch('http://localhost:3000/api/currentBrews')
+    return fetch('/api/currentBrews')
       .then(
         response => response.json(),
         error => console.log('An error occured.', error)
