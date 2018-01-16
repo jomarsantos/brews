@@ -8,10 +8,7 @@ export default function(state = INITIAL_STATE, action) {
   let error;
   switch(action.type) {
 	  case LOGIN:
-	  	return {
-				...state,
-				user: action.user
-			};
+	  	return action.user;
 	  default:
 	    return state;
   }

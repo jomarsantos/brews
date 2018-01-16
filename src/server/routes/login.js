@@ -4,11 +4,9 @@ var FB = require('fb');
 const User = require('../models/User');
 
 router.post('/', function (req, res) {
-	console.log(req.body);
 	FB.api('/me', { fields: 'id,name', access_token: req.body.fbAccessToken }, function (response) {
     if(response && response.error) {
 			// Error 0: Response error from Facebook request
-			console.log(response.error);
 			res.send({
 				success: false,
 				msg: "Unable to log in. Please contact an admin. (Error 0)"

@@ -11,7 +11,18 @@ export default function configureStore(initialState) {
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )(createStore);
 
-  const store = finalCreateStore(rootReducer, initialState);
+	let persistedState = {};
+	if (localStorage.getItem('user')) {
+		persistedState = {
+			user: JSON.parse(localStorage.getItem('user'))
+		}
+	}
+	
+  const store = finalCreateStore(rootReducer, persistedState);
+
+	store.subscribe(() => {
+	  localStorage.setItem('user', JSON.stringify(store.getState().user));
+	});
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

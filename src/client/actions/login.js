@@ -18,7 +18,6 @@ export function login(fbUserId, fbAccessToken) {
         error => console.log('An error occured.', error)
       )
       .then(json => {
-				console.log(json);
 				// TODO: handle errors and initialize session / deactivate login button
         dispatch(loggedIn(json.user))
 				}
