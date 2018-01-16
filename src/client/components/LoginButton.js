@@ -5,26 +5,15 @@ import { login } from '../actions/auth';
 class LoginButton extends Component {
 	constructor(props, context){
 		super(props, context);
-		this.initializeFacebookLogin = this.initializeFacebookLogin.bind(this);
 		this.facebookLoginHandler = this.facebookLoginHandler.bind(this);
 		this.login = this.login.bind(this);
   }
 
-	componentDidMount() {
-		document.addEventListener('FBObjectReady', this.initializeFacebookLogin);
-	}
-
-	componentWillUnmount() {
-		document.removeEventListener('FBObjectReady', this.initializeFacebookLogin);
-	}
-
-	initializeFacebookLogin() {
-		this.FB = window.FB;
-	}
-
   login() {
+		this.FB = window.FB;
 		// TODO: check local storage for data
     if (!this.FB) {
+			console.log('here');
 			return;
 		} else {
 			this.FB.login(this.facebookLoginHandler, {
