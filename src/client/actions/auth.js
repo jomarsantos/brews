@@ -1,4 +1,5 @@
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 
 export function login(fbUserId, fbAccessToken) {
   return function (dispatch) {
@@ -30,4 +31,13 @@ export function loggedIn(user) {
     type: LOGIN,
 		user: user
   };
+}
+
+export function logout() {
+	return (dispatch, getState) => {
+		dispatch({
+			type: LOGOUT,
+			user: {}
+		});
+	}
 }
