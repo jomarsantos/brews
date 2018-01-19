@@ -10,6 +10,8 @@ $backgroundColor: #282828;
 $headerHeight: 60px;
 $headerBackgroundcolor: darken($backgroundColor, 2%);
 $headerTextColor: $lightFontColor;
+$loginButtonBackground: #1c263e;
+$logoutButtonBackground: #4b2727;
 
 // Brews
 $containerBackgroundColor: #73684b;
@@ -25,6 +27,8 @@ $filterBorderActiveColor: lighten($backgroundColor, 10%);
 $filterInputTextColor: lighten($backgroundColor, 10%);
 $filterPlaceholderTextColor: lighten($backgroundColor, 3%);
 $filterLabelTextColor: lighten($backgroundColor, 4%);
+$noResultTextColor: $primaryFontColor;
+$noResultBackgroundColor: $containerBackgroundColor;
 
 ///////////////////////
 // General
@@ -57,10 +61,11 @@ body {
 	.noResults {
 		margin: 10px;
 		padding: 30px 20px;
-		background-color: $containerBackgroundColor;
+		background-color: $noResultBackgroundColor;
 		font: 16px $font;
-		color: $lightFontColor;
+		color: $noResultTextColor;
 		text-align: center;
+		border-radius: 10px;
 	}
 
 	#currentBrewsContainer-columns {
@@ -152,6 +157,7 @@ body {
 	top: 0;
 	background-color: $headerBackgroundcolor;
 	color: $headerTextColor;
+	font: 14px $font;
 	text-align: center;
 
 	a {
@@ -169,6 +175,84 @@ body {
 
 		font: 16px $font;
 		letter-spacing: 2px;
+	}
+
+	#header-loginButton {
+		padding: 10px 15px;
+		height: $headerHeight - 40px;
+		margin: 10px;
+		text-align: center;
+		border-radius: 10px;
+		cursor: pointer;
+		background-color: $loginButtonBackground;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		&:hover {
+			background-color: darken($loginButtonBackground, 1%);
+		}
+
+		p {
+			margin: 0;
+			display: inline-block;
+		}
+
+		i {
+			padding-left: 10px;
+			display: inline-block;
+		}
+	}
+
+	#header-loggedIn {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		p {
+			margin: 0;
+			display: inline-block;
+		}
+
+		#header-userName {
+			padding: 10px 15px;
+			height: $headerHeight - 40px;
+			margin: 10px 60px 10px 0;
+			text-align: center;
+			border-radius: 10px;
+			cursor: pointer;
+			display: inline-block;
+			background-color: darken($headerBackgroundcolor, 1%);
+
+			&:hover {
+				background-color: darken($headerBackgroundcolor, 2%);
+			}
+		}
+
+		#header-logoutButtonContainer {
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			#header-logoutButton {
+				padding: 10px 15px;
+				height: $headerHeight - 40px;
+				margin: 10px;
+				text-align: center;
+				border-radius: 10px;
+				cursor: pointer;
+				background-color: $logoutButtonBackground;
+
+				&:hover {
+					background-color: darken($logoutButtonBackground, 1%);
+				}
+
+				i {
+					margin-top: 3px;
+				}
+			}
+		}
 	}
 }
 
@@ -247,6 +331,7 @@ body {
 		display: inline-block;
 		vertical-align: middle;
 		padding: 8px;
+		cursor: pointer;
 	}
 
 	&-brewText {

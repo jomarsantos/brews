@@ -9,16 +9,26 @@ class Header extends Component {
 	render() {
 		let button = (
 			<LoginButton>
-				<button>Login via Facebook</button>
+				<div id='header-loginButton'>
+					<p>Log In</p>
+					<i className="fa fa-facebook-square" aria-hidden="true"></i>
+				</div>
 			</LoginButton>
 		);
 		let user = null;
 		if (this.props.user.id) {
 			user = this.props.user.name;
 			button = (
-				<LogoutButton>
-					<button>Logout</button>
-				</LogoutButton>
+				<div id='header-loggedIn'>
+					<div id='header-userName'>
+						<p>{user}</p>
+					</div>
+					<LogoutButton id='header-logoutButtonContainer'>
+						<div id='header-logoutButton'>
+							<i className="fa fa-sign-out" aria-hidden="true"></i>
+						</div>
+					</LogoutButton>
+				</div>
 			);
 		}
 
@@ -27,7 +37,6 @@ class Header extends Component {
 		return(
 			<div id='header'>
 				<Link to='/'><h1>BREWING IN VANCOUVER</h1></Link>
-				{ user }
 				{ button }
 			</div>
 		);
