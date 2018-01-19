@@ -24,19 +24,20 @@ class CurrentBrewsList extends Component {
 			let star = null;
 			if (loggedIn) {
 				if (favorites.indexOf(brew._id) !== -1) {
-					star = <i className="fa fa-star" aria-hidden="true"
+					star = <i id='star' className="fa fa-star" aria-hidden="true"
 						onClick={() => this.props.toggleFavorite(this.props.user, brew._id)}></i>;
 				} else {
-					star = <i className="fa fa-star-o" aria-hidden="true"
+					star = <i id='star' className="fa fa-star-o" aria-hidden="true"
 						onClick={() => this.props.toggleFavorite(this.props.user, brew._id)}></i>;
 				}
 			}
 
 			return (
 				<li key={index}>
-
-					<h2 className='currentBrewsList-brewName'>{brew.name + percentage}</h2>
-					<p className='currentBrewsList-brewSubtitle'>{brew.subtitle}</p>
+					<div className='currentBrewsList-brewText'>
+						<h2 className='currentBrewsList-brewName'>{brew.name + percentage}</h2>
+						<p className='currentBrewsList-brewSubtitle'>{brew.subtitle}</p>
+					</div>
 					{star}
 				</li>
 			);
