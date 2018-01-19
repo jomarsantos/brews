@@ -13,11 +13,10 @@ class LoginButton extends Component {
 		this.FB = window.FB;
 		// TODO: check local storage for data
     if (!this.FB) {
-			console.log('here');
 			return;
 		} else {
 			this.FB.login(this.facebookLoginHandler, {
-				auth_type: 'reauthenticate',
+				// auth_type: 'reauthenticate',
 				scope: 'public_profile'
 			});
 		}

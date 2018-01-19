@@ -4,7 +4,34 @@ var ObjectID = require('mongodb').ObjectID;
 const Brew = require('../models/Brew');
 const User = require('../models/User');
 
-router.post('/toggleFavorite', function (req, res) {
+router.get('/favorite', function (req, res) {
+	if (!req.query.hasOwnProperty('userId')) {
+		res.send({
+			success: false,
+			msg: "Request body must contain userId."
+		});
+	}
+
+	User.find({_id: req.query.userId}).exec().then(
+		function(user) {
+			if (user.length === 0) {
+				// Error: Invalid userId
+				res.send({
+					success: false,
+					msg: "No user found with userId."
+				});
+			} else {
+				res.send({
+					success: true,
+					msg: 'Successfully retrieve user favorites.',
+					favorites: user[0].favorites
+				});
+			}
+		}
+	)
+});
+
+router.post('/favorite', function (req, res) {
 	if (!req.body.hasOwnProperty('userId') || !req.body.hasOwnProperty('brewId')) {
 		res.send({
 			success: false,
@@ -36,11 +63,11 @@ router.post('/toggleFavorite', function (req, res) {
 							if (index >= 0) {
 								// Brew currently favorited, untoggle
 								favorites.splice(index, 1);
-								message = 'Succesfully removed favorited.';
+								message = 'Successfully removed favorited.';
 							} else {
 								// Brew currently not favorited, toggle
 								favorites.push(brew[0]._id);
-								message = 'Succesfully added favorited.';
+								message = 'Successfully added favorited.';
 							}
 							var updates = {
 								favorites: favorites

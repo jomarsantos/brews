@@ -59,7 +59,7 @@ class CurrentBrewsContainer extends Component {
 				columns.forEach((column, index) => {
 					columns[index] = column.map((brewery, index) => {
 						return (
-							<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery} />
+							<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery}/>
 						);
 					});
 				})
@@ -94,7 +94,8 @@ const mapStateToProps = (state) => {
     status: state.currentBrews.loading,
 		brews: state.currentBrews.brews,
 		filteredBrews: state.currentBrews.filteredBrews,
-		receivedAt: state.currentBrews.receivedAt
+		receivedAt: state.currentBrews.receivedAt,
+		user: state.user
   };
 }
 

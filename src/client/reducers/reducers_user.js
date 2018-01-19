@@ -1,4 +1,5 @@
 import { LOGIN, LOGOUT } from '../actions/auth';
+import { UPDATE_USER_FAVORITES } from '../actions/favorites';
 
 const INITIAL_STATE = {
 	user: {}
@@ -11,7 +12,12 @@ export default function(state = INITIAL_STATE, action) {
 	  	return action.user;
 		case LOGOUT:
 			return action.user;
-	  default:
+		case UPDATE_USER_FAVORITES:
+		return {
+			...state,
+			favorites: action.favorites
+		};
+		  default:
 	    return state;
   }
 }
