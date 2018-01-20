@@ -41,8 +41,12 @@ export function filterCurrentBrews(breweryInput, brewInput) {
 		if (brewInput) {
 			filteredBrews.forEach((brewery, index) => {
 				let filteredBrewsOfBrewery = brewery.currentTapLineup.brews.filter(brew => {
-					return brew.name.toLowerCase().indexOf(brewInput) !== -1
-						|| brew.subtitle.toLowerCase().indexOf(brewInput) !== -1;
+					let subtitleMatch = false;
+					if (typeof brew.subtitle != 'undefined') {
+						subtitleMatch = brew.subtitle.toLowerCase().indexOf(brewInput) !== -1;
+					}
+
+					return brew.name.toLowerCase().indexOf(brewInput) !== -1 || subtitleMatch;
 				})
 				filteredBrews[index].currentTapLineup.brews = filteredBrewsOfBrewery;
 			})

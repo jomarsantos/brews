@@ -138,5 +138,24 @@ module.exports = [
 		currentTapLineup: false,
 		currentTakeoutLineup: false,
 		importActivated: true
+	},
+	{
+		code: 'redtruck',
+		logo: config.baseURL + '/images/logo_redtruck_dark.png',
+		name: 'Red Truck Beer',
+		description: 'Armed with the will and initiative to make an impact on the beer world, Claire and Brendan Wilson created Dogwood Brewing. Claire used her years of education and brewing experience throughout British Columbia and the UK to open Vancouver\'s first organic brewery: Dogwood Brewing.',
+		address: '295 East 1st Avenue',
+		city: 'Vancouver',
+		province: 'BC',
+		country: 'Canada',
+		postal: false,
+		website: 'https://www.redtruckbeer.com',
+		twitter: 'redtruckbeer',
+		instagram: 'redtruckbeer',
+		facebook: 'https://www.facebook.com/RedTruckBeer',
+		youtube: 'redtruckbeer',
+		currentTapLineup: false,
+		currentTakeoutLineup: false,
+		importActivated: true
 	}
 ]
