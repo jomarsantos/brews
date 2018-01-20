@@ -100,5 +100,43 @@ module.exports = [
 		currentTapLineup: false,
 		currentTakeoutLineup: false,
 		importActivated: true
+	},
+	{
+		code: 'parallel49',
+		logo: config.baseURL + '/images/logo_parallel49_dark.png',
+		name: 'Parallel 49 Brewing',
+		description: 'The story of Parallel 49 is a story of a brewery that strives to create clever and innovative beers that are highly drinkable. It’s a story that continues to meander and morph to this day.',
+		address: '1950 Triumph Street',
+		city: 'Vancouver',
+		province: 'BC',
+		country: 'Canada',
+		postal: false,
+		website: 'http://parallel49brewing.com/',
+		twitter: 'Parallel49Beer',
+		instagram: 'parallel49beer',
+		facebook: 'https://www.facebook.com/Parallel49Brewing',
+		youtube: false,
+		currentTapLineup: false,
+		currentTakeoutLineup: false,
+		importActivated: true
+	},
+	{
+		code: 'bomber',
+		logo: config.baseURL + '/images/logo_bomber_dark.png',
+		name: 'Bomber Brewing',
+		description: 'Drop by for a pint, stock up on 6packs, fill your growlers, or just sit back and enjoy a board game or movie night! Located in the heart of the East Van brewing district, at the crossroads of the Mosaic and Adanac bike routes, the Bomber tasting room is always ready and pouring!',
+		address: '1488 Adanac Street',
+		city: 'Vancouver',
+		province: 'BC',
+		country: 'Canada',
+		postal: false,
+		website: 'http://www.bomberbrewing.com/',
+		twitter: 'BomberBrewing',
+		instagram: 'bomberbrewing',
+		facebook: 'https://www.facebook.com/bomberbrewing',
+		youtube: false,
+		currentTapLineup: false,
+		currentTakeoutLineup: false,
+		importActivated: true
 	}
 ]

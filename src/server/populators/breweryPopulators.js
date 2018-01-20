@@ -4,6 +4,8 @@ var thirtyThreeAcres = require('./breweryPopulators/33acres');
 var brassneck = require('./breweryPopulators/brassneck');
 var strangefellows = require('./breweryPopulators/strangefellows');
 var steelandoak = require('./breweryPopulators/steelandoak');
+var parallel49 = require('./breweryPopulators/parallel49');
+var bomber = require('./breweryPopulators/bomber');
 
 function combineBreweryPopulators() {
 	// Property must match up with code of brewery
@@ -11,6 +13,8 @@ function combineBreweryPopulators() {
 		brassneck: brassneck,
 		strangefellows: strangefellows,
 		steelandoak: steelandoak,
+		parallel49: parallel49,
+		// bomber: bomber
 	}
 
 	// To handle codes that start with a number
