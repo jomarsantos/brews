@@ -1,5 +1,5 @@
-const url = 'http://www.bomberbrewing.com/index.html#tr_anchor';
-const code = 'bomber';
+const url = 'http://www.dogwoodbrew.com/brewerylounge/';
+const code = 'dogwood';
 const codeTag = '['+ code + '] ';
 const SUCCESS = 'Success';
 const FAIL = 'Fail';
@@ -51,7 +51,7 @@ function createSavePromise(tapBrew) {
 
 module.exports = {
   execute: function (callback) {
-		console.log(codeTag + '* UPDATE BOMBER LINEUPS *');
+		console.log(codeTag + '* UPDATE DOGWOOD LINEUPS *');
 
 		// Check if brewery exists in database
 		Brewery.find({code: code}).exec().then(
@@ -69,33 +69,30 @@ module.exports = {
 					axios.get(url).then(
 						function(response) {
 							var $ = cheerio.load(response.data);
-							console.log(response.data);
-							$('div').filter(function(element){
-							    return $(element).text().includes('On Tap')
-							}).parent().parent().find('.menu-item').each(
+							// $('div').filter(function(element){
+							//     return $(element).text().includes('On Tap')
+							// }).parent().parent().find('.menu-item').each(
+
+							$("p:contains('by the glass')").parent().find('li').each(
 								function(item) {
-									console.log(item);
 									// Grab data for brew
-									var brewName = $(this).find('h1').text();
-									var brewSubtitle = $(this).find("h4:contains('Style: ')")
-										.first().text().replace('Style: ', '').trim();
-									var brewPercentage = $(this).find("h4:contains('Alcohol: ')")
-										.first().text().replace('Alcohol: ', '').replace('% by volume', '').trim();
-									var brewDescription = $(this).find("h4:contains('Flavour: ')")
-										.first().text().replace('Flavour: ', '').trim()
+									var brewName = $(this).find('strong').text().trim();
+									var textSplit = $(this).text().split('%');
+									var brewSubtitle = textSplit[1].trim();
+									var brewPercentage = textSplit[0].replace(brewName, '').trim();
 
 									// Create new brew
 									var brewDetail = {
 										name: brewName,
 										subtitle: brewSubtitle,
-										description: brewDescription,
+										// description: brewDescription,
 										percentage: brewPercentage,
 										brewery: brewery
 									};
 									var tapBrew = new Brew(brewDetail);
 
 									// Add save promise to queue
-									// tapBrewPromises.push(createSavePromise(tapBrew));
+									tapBrewPromises.push(createSavePromise(tapBrew));
 								}
 							);
 						}
