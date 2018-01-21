@@ -7,6 +7,7 @@ var steelandoak = require('./breweryPopulators/steelandoak');
 var parallel49 = require('./breweryPopulators/parallel49');
 var dogwood = require('./breweryPopulators/dogwood');
 var redtruck = require('./breweryPopulators/redtruck');
+var callister = require('./breweryPopulators/callister');
 
 function combineBreweryPopulators() {
 	// Property must match up with code of brewery
@@ -16,7 +17,8 @@ function combineBreweryPopulators() {
 		steelandoak: steelandoak,
 		parallel49: parallel49,
 		dogwood: dogwood,
-		redtruck: redtruck
+		redtruck: redtruck,
+		callister: callister
 	}
 
 	// To handle codes that start with a number

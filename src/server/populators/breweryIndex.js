@@ -157,5 +157,24 @@ module.exports = [
 		currentTapLineup: false,
 		currentTakeoutLineup: false,
 		importActivated: true
+	},
+	{
+		code: 'callister',
+		logo: config.baseURL + '/images/logo_callister_dark.png',
+		name: 'Callister Brewing Co.',
+		description: 'Opening in July 2015, Callister Brewing has established firm roots in the ever-expanding brewing neighbourhood of East Vancouver. Located at 1338 Franklin St (one block north of Hastings at Clark), Callister Brewing bridges two major craft brewery hubs intersected by Hastings St.',
+		address: '1338 Franklin Street',
+		city: 'Vancouver',
+		province: 'BC',
+		country: 'Canada',
+		postal: false,
+		website: 'http://www.callisterbrewing.com/',
+		twitter: 'callisterbeer',
+		instagram: 'callisterbeer',
+		facebook: 'https://www.facebook.com/callisterbrewing',
+		youtube: false,
+		currentTapLineup: false,
+		currentTakeoutLineup: false,
+		importActivated: true
 	}
 ]
