@@ -43,7 +43,7 @@ router.post('/', function (req, res) {
 								user: {
 									id: user._id,
 									name: user.name,
-									image: user.picture,
+									picture: user.picture,
 									favorites: user.favorites
 								}
 							});
@@ -64,7 +64,7 @@ router.post('/', function (req, res) {
 						user: {
 							id: user[0]._id,
 							name: user[0].name,
-							image: user[0].picture,
+							picture: user[0].picture,
 							favorites: user[0].favorites
 						}
 					});
