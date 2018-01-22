@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import UserDetailContainer from '../containers/UserDetailContainer';
+import UserFavoritesContainer from '../containers/UserFavoritesContainer';
 
 class UserMain extends Component {
   render() {
@@ -9,6 +10,7 @@ class UserMain extends Component {
 			<div id='currentBrewsMain'>
 				<Header />
 				<UserDetailContainer />
+				<UserFavoritesContainer />
 			</div>
     );
   }
