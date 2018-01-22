@@ -4,7 +4,7 @@ var FB = require('fb');
 const User = require('../models/User');
 
 router.post('/', function (req, res) {
-	FB.api('/me', { fields: 'id,name', access_token: req.body.fbAccessToken }, function (response) {
+	FB.api('/me', { fields: 'id,name,email', access_token: req.body.fbAccessToken }, function (response) {
     if(response && response.error) {
 			// Error 0: Response error from Facebook request
 			res.send({
@@ -25,6 +25,7 @@ router.post('/', function (req, res) {
 					var userDetail = {
 						name: response.name,
 						fbUserId: response.id,
+						picture: 'https://graph.facebook.com/' + response.id + '/picture?type=large',
 						favorites: []
 					};
 					var user = new User(userDetail);
