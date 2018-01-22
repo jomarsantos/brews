@@ -6,7 +6,9 @@ import CurrentBrewsList from '../components/CurrentBrewsList';
 
 class CurrentBrewsContainer extends Component {
 	componentDidMount() {
-		this.props.fetchCurrentBrews();
+		if (this.props.brews.length === 0) {
+			this.props.fetchCurrentBrews();
+		}
 	}
 
 	render() {

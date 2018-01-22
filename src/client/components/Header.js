@@ -20,9 +20,11 @@ class Header extends Component {
 			user = this.props.user.name;
 			button = (
 				<div id='header-loggedIn'>
-					<div id='header-userName'>
-						<p>{user}</p>
-					</div>
+					<Link to='/user'>
+						<div id='header-userName'>
+							<p>{user}</p>
+						</div>
+					</Link>
 					<LogoutButton id='header-logoutButtonContainer'>
 						<div id='header-logoutButton'>
 							<i className="fa fa-sign-out" aria-hidden="true"></i>
