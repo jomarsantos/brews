@@ -3,7 +3,7 @@ export const UPDATE_USER_FAVORITES = 'UPDATE_USER_FAVORITES';
 export function toggleFavorite(user, brewId) {
   return function (dispatch) {
 		// TODO: abstract endpoint out to config file
-    return fetch('/api/user/favorite', {
+    return fetch('/api/user/favorites', {
         method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
