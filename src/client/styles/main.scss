@@ -6,6 +6,9 @@ $lightFontColor: #b9b9b9;
 
 $backgroundColor: #282828;
 
+$black: #000000;
+$tan: #73684b;
+
 // Header
 $headerHeight: 60px;
 $headerBackgroundcolor: darken($backgroundColor, 2%);
@@ -14,7 +17,7 @@ $loginButtonBackground: #1c263e;
 $logoutButtonBackground: #4b2727;
 
 // Brews
-$containerBackgroundColor: #73684b;
+$containerBackgroundColor: $tan;
 $containerElementBackgroundColor: #887e62;
 $brewsHeaderTextColor: $primaryFontColor;
 $brewsUpdatedTextColor: $primaryFontColor;
@@ -29,6 +32,10 @@ $filterPlaceholderTextColor: lighten($backgroundColor, 3%);
 $filterLabelTextColor: lighten($backgroundColor, 4%);
 $noResultTextColor: $primaryFontColor;
 $noResultBackgroundColor: $containerBackgroundColor;
+
+// User
+$userNameBackgroundColor: $tan;
+$userNameTextColor: $black;
 
 ///////////////////////
 // General
@@ -46,6 +53,11 @@ body {
 #currentBrewsMain {
 	width: 100%;
 	margin: $headerHeight 0 0 0;
+}
+
+#userMain {
+	width: 728px;
+	margin: $headerHeight auto 0 auto;
 }
 
 ///////////////////////
@@ -78,6 +90,33 @@ body {
 		margin: 10px;
 		display: inline-block;
 		vertical-align: top;
+	}
+}
+
+#userDetailContainer {
+	padding: 20px;
+	font: 14px $font;
+	text-align: center;
+
+	&-image {
+		height: 150px;
+		width: 150px;
+		margin: 0;
+		border-radius: 100%;
+		border-style: solid;
+		border-color: #FFFFFF;
+		border-width: 4px;
+	}
+
+	&-name {
+		border-radius: 20px;
+		padding: 10px 25px;
+		font-weight: 400;
+		margin: 10px 0 0 0;
+		display: inline-block;
+		background-color: $userNameBackgroundColor;
+		color: $userNameTextColor;
+		letter-spacing: 1px;
 	}
 }
 

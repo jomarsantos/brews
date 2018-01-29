@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 class UserDetailContainer extends Component {
 	render() {
 		return (
-			<div id='userDetailContainer-main'>
+			<div id='userDetailContainer'>
 				<img id='userDetailContainer-image' src={this.props.user.picture}/>
+				<br />
 				<h1 id ='userDetailContainer-name'>{this.props.user.name}</h1>
 			</div>
 		);

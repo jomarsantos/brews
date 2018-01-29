@@ -7,7 +7,7 @@ import UserFavoritesContainer from '../containers/UserFavoritesContainer';
 class UserMain extends Component {
   render() {
     return (
-			<div id='currentBrewsMain'>
+			<div id='userMain'>
 				<Header />
 				<UserDetailContainer />
 				<UserFavoritesContainer />
