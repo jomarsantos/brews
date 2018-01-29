@@ -36,10 +36,12 @@ var currentBrewsRouter = require('./routes/currentBrews.js');
 var loginRouter = require('./routes/login.js');
 var userRouter = require('./routes/user.js');
 var rootRouter = require('./routes/root.js');
+var breweryRouter = require('./routes/brewery.js');
 // Routes
 app.use('/api/currentBrews', currentBrewsRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/user', userRouter);
+app.use('/api/brewery', breweryRouter);
 app.use('/api', rootRouter);
 
 // Client

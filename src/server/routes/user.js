@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var ObjectID = require('mongodb').ObjectID;
 const Brew = require('../models/Brew');
 const Brewery = require('../models/Brewery');
 const User = require('../models/User');
@@ -9,7 +8,7 @@ router.get('/favorites', function (req, res) {
 	if (!req.query.hasOwnProperty('userId')) {
 		res.send({
 			success: false,
-			msg: "Request body must contain userId."
+			msg: "Request must contain a userId parameter."
 		});
 	}
 
