@@ -93,7 +93,7 @@ class CurrentBrewsContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    status: state.currentBrews.loading,
+    status: state.currentBrews.status,
 		brews: state.currentBrews.brews,
 		filteredBrews: state.currentBrews.filteredBrews,
 		receivedAt: state.currentBrews.receivedAt,

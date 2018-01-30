@@ -56,9 +56,13 @@ body {
 }
 
 #userMain {
-	width: 728px;
 	margin: $headerHeight auto 0 auto;
 }
+
+#breweryMain {
+	margin: $headerHeight auto 0 auto;
+}
+
 
 ///////////////////////
 // Containers
@@ -94,6 +98,33 @@ body {
 }
 
 #userDetailContainer {
+	padding: 20px;
+	font: 14px $font;
+	text-align: center;
+
+	&-image {
+		height: 150px;
+		width: 150px;
+		margin: 0;
+		border-radius: 100%;
+		border-style: solid;
+		border-color: #FFFFFF;
+		border-width: 4px;
+	}
+
+	&-name {
+		border-radius: 20px;
+		padding: 10px 25px;
+		font-weight: 400;
+		margin: 10px 0 0 0;
+		display: inline-block;
+		background-color: $userNameBackgroundColor;
+		color: $userNameTextColor;
+		letter-spacing: 1px;
+	}
+}
+
+#breweryDetailContainer {
 	padding: 20px;
 	font: 14px $font;
 	text-align: center;
