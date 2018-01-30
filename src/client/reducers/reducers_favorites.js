@@ -1,4 +1,4 @@
-import { RECEIVE_USER_FAVORITES } from '../actions/favorites';
+import { RECEIVE_USER_FAVORITES, UPDATE_USER_FAVORITES } from '../actions/favorites';
 
 const INITIAL_STATE = {
 	status: 'loading',
@@ -13,6 +13,11 @@ export default function(state = INITIAL_STATE, action) {
 				...state,
 				status: action.status,
 				favorites: action.favorites
+			};
+		case UPDATE_USER_FAVORITES:
+			return {
+				...state,
+				status: 'changed',
 			};
 	  default:
 	    return state;

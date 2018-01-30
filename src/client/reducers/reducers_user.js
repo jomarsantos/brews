@@ -13,11 +13,11 @@ export default function(state = INITIAL_STATE, action) {
 		case LOGOUT:
 			return action.user;
 		case UPDATE_USER_FAVORITES:
-		return {
-			...state,
-			favorites: action.favorites
-		};
-		  default:
+			return {
+				...state,
+				favorites: action.favorites
+			};
+	  default:
 	    return state;
   }
 }

@@ -5,7 +5,7 @@ import FavoriteBrewsList from '../components/FavoriteBrewsList';
 
 class UserFavoritesContainer extends Component {
 	componentDidMount() {
-		if (this.props.favorites.length === 0) {
+		if (this.props.status === 'loading' || this.props.status === 'changed') {
 			this.props.fetchUserFavorites(this.props.user);
 		}
 	}
@@ -23,6 +23,12 @@ class UserFavoritesContainer extends Component {
 			function numBrewsCompare(a, b) {
 				if (a.brews.length > b.brews.length) {
 					return -1;
+				} else if (a.brews.length == b.brews.length) {
+					if (a.code < b.code) {
+						return -1;
+					} else {
+						return 1;
+					}
 				} else {
 					return 1;
 				}
