@@ -1,4 +1,4 @@
-import { RECEIVE_BREWERY } from '../actions/brewery';
+import { RECEIVE_BREWERY, RESET_BREWERY } from '../actions/brewery';
 
 const INITIAL_STATE = {
 	status: 'loading',
@@ -11,6 +11,13 @@ export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
 	  case RECEIVE_BREWERY:
 	  	return {
+				...state,
+				status: action.status,
+				details: action.details,
+				brews: action.brews
+			};
+		case RESET_BREWERY:
+			return {
 				...state,
 				status: action.status,
 				details: action.details,

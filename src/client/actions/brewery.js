@@ -1,4 +1,5 @@
 export const RECEIVE_BREWERY = 'RECEIVE_BREWERY';
+export const RESET_BREWERY = 'RESET_BREWERY';
 
 export function fetchBrewery(breweryCode) {
   return function (dispatch) {
@@ -20,5 +21,14 @@ export function receiveBrewery(brewery) {
 		status: 'received',
 		details: brewery.details,
 		brews: brewery.brews
+  };
+}
+
+export function resetBrewery() {
+  return {
+    type: RESET_BREWERY,
+		status: 'not_received',
+		details: {},
+		brews: []
   };
 }

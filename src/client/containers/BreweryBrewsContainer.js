@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchBrewery } from '../actions/brewery';
+import { fetchBrewery, resetBrewery } from '../actions/brewery';
 import CurrentBrewsList from '../components/CurrentBrewsList';
 
 
 class BreweryBrewsContainer extends Component {
 	componentDidMount() {
 		this.props.fetchBrewery(this.props.breweryCode);
+	}
+
+	componentWillUnmount() {
+		this.props.resetBrewery();
 	}
 
 	render() {
@@ -102,6 +106,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchBrewery: (breweryCode) => {
       dispatch(fetchBrewery(breweryCode));
+    },
+		resetBrewery: () => {
+      dispatch(resetBrewery());
     }
   }
 }
