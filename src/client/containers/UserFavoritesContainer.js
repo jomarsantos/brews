@@ -15,10 +15,14 @@ class UserFavoritesContainer extends Component {
 
 		let main = null;
     if (isLoading) {
-      main = <p>Loading</p>;
+      main = (
+				<div id="userFavoritesContainer-textOnlyContainer">
+					<p>Loading.</p>
+				</div>
+			);
     } else if (this.props.favorites.length === 0) {
 			main = (
-				<div id="userFavoritesContainer">
+				<div id="userFavoritesContainer-textOnlyContainer">
 					<p>No brews currently favorited.</p>
 				</div>
 			);
