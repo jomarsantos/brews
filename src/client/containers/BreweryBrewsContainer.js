@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchBrewery, resetBrewery } from '../actions/brewery';
-import CurrentBrewsList from '../components/CurrentBrewsList';
+import { fetchBrewery, resetBrewery, setFilter } from '../actions/brewery';
+import BreweryBrewsList from '../components/BreweryBrewsList';
 
 
 class BreweryBrewsContainer extends Component {
@@ -17,76 +17,35 @@ class BreweryBrewsContainer extends Component {
 		const isLoading = this.props.status == 'loading';
 
 		let main = null;
-    // if (isLoading) {
-    //   main = <p>Loading</p>;
-    // } else {
-		// 	let brews = [];
-		// 	if (this.props.filteredBrews === -1) {
-		// 		main = <div className='noResults'><p>No matches. Please try another search.</p></div>;
-		// 	} else {
-		// 		if (this.props.filteredBrews.length != 0) {
-		// 			brews = this.props.filteredBrews;
-		// 		} else {
-		// 			brews = this.props.brews;
-		// 		}
-		// 		brews = brews.filter((brewery) => {
-		// 			return brewery.hasOwnProperty('currentTapLineup');
-		// 		});
-		//
-		// 		// Order breweries from most brews to least
-		// 		function numBrewsCompare(a, b) {
-		// 		  if (a.currentTapLineup.brews.length > b.currentTapLineup.brews.length) {
-		// 				return -1;
-		// 			} else {
-		// 				return 1;
-		// 			}
-		// 		}
-		// 		brews.sort(numBrewsCompare);
-		//
-		// 		// Distribute breweries over 3 columns
-		// 		let columns = [[],[],[]];
-		// 		let numBrews = [0, 0, 0];
-		// 		brews.forEach((brewery, index) => {
-		// 			let column = 0;
-		// 			if (numBrews[1] < numBrews[column]) {
-		// 				column = 1;
-		// 			}
-		// 			if (numBrews[2] < numBrews[column]) {
-		// 				column = 2;
-		// 			}
-		//
-		// 			columns[column].push(brewery);
-		// 			numBrews[column] += brewery.currentTapLineup.brews.length;
-		// 		})
-		//
-		// 		// Add brewery lineups to columns
-		// 		columns.forEach((column, index) => {
-		// 			columns[index] = column.map((brewery, index) => {
-		// 				return (
-		// 					<CurrentBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery}/>
-		// 				);
-		// 			});
-		// 		})
-		//
-		// 		// Create columns
-		// 		let columnElements = columns.map((column, index) => {
-		// 			return (
-		// 				<div className='currentBrewsContainer-column' key={index}>
-		// 					{ column }
-		// 				</div>
-		// 			);
-		// 		});
-		//
-		// 		main = (
-		// 			<div id='currentBrewsContainer-columns'>
-		// 				{ columnElements }
-		// 			</div>
-		// 		);
-		// 	}
-    // }
+		if (this.props.brews.length == 0) {
+			main = <p>Brewery has not produced any brews before.</p>
+		} else {
+			let brews = [];
+			if (this.props.filter === 'current') {
+				this.props.brews.forEach((brew, index) => {
+					if (this.props.details.currentTapLineup.brews.includes(brew._id)) {
+						brews.push(brew);
+					}
+				});
+			} else {
+				brews = this.props.brews;
+			}
+
+			main = <BreweryBrewsList brews={brews} publishedDate={this.props.details.currentTapLineup.publishedDate}/>;
+		}
 
 		return(
-			<div id='currentBrewsContainer'>
+			<div id='breweryBrewsContainer'>
+				<div id='breweryBrewsContainer-filters'>
+					<button id="breweryBrewsContainer-allBrewsButton"
+						onClick={() => this.props.setFilter('all')}>
+						All
+					</button>
+					<button id="breweryBrewsContainer-currentBrewsButton"
+						onClick={() => this.props.setFilter('current')}>
+						Currently Brewing
+					</button>
+				</div>
 				{ main }
 			</div>
 		);
@@ -96,7 +55,9 @@ class BreweryBrewsContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     status: state.brewery.status,
-		brewery: state.brewery.brewery,
+		brews: state.brewery.brews,
+		details: state.brewery.details,
+		filter: state.brewery.filter,
 		breweryCode: ownProps.match.params.breweryCode,
 		user: state.user,
   };
@@ -109,7 +70,10 @@ const mapDispatchToProps = (dispatch) => {
     },
 		resetBrewery: () => {
       dispatch(resetBrewery());
-    }
+    },
+		setFilter: (filter) => {
+			dispatch(setFilter(filter));
+		}
   }
 }
 

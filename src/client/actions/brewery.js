@@ -1,5 +1,6 @@
 export const RECEIVE_BREWERY = 'RECEIVE_BREWERY';
 export const RESET_BREWERY = 'RESET_BREWERY';
+export const SET_FILTER = 'SET_FILTER';
 
 export function fetchBrewery(breweryCode) {
   return function (dispatch) {
@@ -29,6 +30,14 @@ export function resetBrewery() {
     type: RESET_BREWERY,
 		status: 'not_received',
 		details: {},
-		brews: []
+		brews: [],
+		filter: 'all'
+  };
+}
+
+export function setFilter(filter) {
+  return {
+		type: SET_FILTER,
+		filter: filter
   };
 }

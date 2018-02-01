@@ -1,9 +1,10 @@
-import { RECEIVE_BREWERY, RESET_BREWERY } from '../actions/brewery';
+import { RECEIVE_BREWERY, RESET_BREWERY, SET_FILTER } from '../actions/brewery';
 
 const INITIAL_STATE = {
 	status: 'loading',
 	details: {},
-	brews: []
+	brews: [],
+	filter: 'all'
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -21,7 +22,13 @@ export default function(state = INITIAL_STATE, action) {
 				...state,
 				status: action.status,
 				details: action.details,
-				brews: action.brews
+				brews: action.brews,
+				filter: action.filter
+			};
+		case SET_FILTER:
+			return {
+				...state,
+				filter: action.filter
 			};
 	  default:
 	    return state;
