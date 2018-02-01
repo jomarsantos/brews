@@ -69,14 +69,14 @@ class CurrentBrewsContainer extends Component {
 				// Create columns
 				let columnElements = columns.map((column, index) => {
 					return (
-						<div className='currentBrewsContainer-column' key={index}>
+						<div className='genericBrewsContainer-column' key={index}>
 							{ column }
 						</div>
 					);
 				});
 
 				main = (
-					<div id='currentBrewsContainer-columns'>
+					<div id='genericBrewsContainer-columns'>
 						{ columnElements }
 					</div>
 				);
@@ -84,7 +84,7 @@ class CurrentBrewsContainer extends Component {
     }
 
 		return(
-			<div id='currentBrewsContainer'>
+			<div id='genericBrewsContainer'>
 				{ main }
 			</div>
 		);

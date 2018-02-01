@@ -16,7 +16,13 @@ class UserFavoritesContainer extends Component {
 		let main = null;
     if (isLoading) {
       main = <p>Loading</p>;
-    } else {
+    } else if (this.props.favorites.length === 0) {
+			main = (
+				<div id="userFavoritesContainer">
+					<p>No brews currently favorited.</p>
+				</div>
+			);
+		} else {
 			let brews = this.props.favorites;
 
 			// Order breweries from most brews to least
@@ -63,21 +69,21 @@ class UserFavoritesContainer extends Component {
 			// Create columns
 			let columnElements = columns.map((column, index) => {
 				return (
-					<div className='currentBrewsContainer-column' key={index}>
+					<div className='genericBrewsContainer-column' key={index}>
 						{ column }
 					</div>
 				);
 			});
 
 			main = (
-				<div id='currentBrewsContainer-columns'>
+				<div id='genericBrewsContainer-columns'>
 					{ columnElements }
 				</div>
 			);
 		}
 
 		return(
-			<div id='currentBrewsContainer'>
+			<div id='genericBrewsContainer'>
 				{ main }
 			</div>
 		);

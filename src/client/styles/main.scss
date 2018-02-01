@@ -68,7 +68,7 @@ body {
 // Containers
 ///////////////////////
 
-#currentBrewsContainer {
+#genericBrewsContainer {
 	margin: 0;
 	padding: 10px;
 	background-color: $backgroundColor;
@@ -84,12 +84,12 @@ body {
 		border-radius: 10px;
 	}
 
-	#currentBrewsContainer-columns {
+	#genericBrewsContainer-columns {
 		width: 900px;
 		margin: 0 auto;
 	}
 
-	.currentBrewsContainer-column {
+	.genericBrewsContainer-column {
 		width: 280px;
 		margin: 10px;
 		display: inline-block;
