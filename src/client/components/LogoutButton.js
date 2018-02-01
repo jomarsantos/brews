@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { logout } from '../actions/auth';
 import { withRouter } from 'react-router'
+import { logout } from '../actions/auth';
 
 class LogoutButton extends Component {
 	logout() {

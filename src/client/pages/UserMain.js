@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router'
 import Header from '../components/Header';
 import UserDetailContainer from '../containers/UserDetailContainer';
 import UserFavoritesContainer from '../containers/UserFavoritesContainer';
 
 class UserMain extends Component {
+
 	componentDidMount() {
-		document.title = "Brews | " + this.props.user.name;
+		if (this.props.user.id) {
+			document.title = "Brews | " + this.props.user.name;
+		} else {
+			this.props.history.push('/')
+		}
 	}
 
   render() {
@@ -26,4 +32,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, null)(UserMain);
+export default withRouter(connect(mapStateToProps, null)(UserMain));
