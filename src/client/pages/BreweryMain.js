@@ -5,6 +5,10 @@ import BreweryDetailContainer from '../containers/BreweryDetailContainer';
 import BreweryBrewsContainer from '../containers/BreweryBrewsContainer';
 
 class BreweryMain extends Component {
+	componentDidMount() {
+		document.title = "Brews";
+	}
+
   render() {
     return (
 			<div id='breweryMain'>

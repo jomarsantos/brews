@@ -34,9 +34,9 @@ class BreweryBrewsList extends Component {
 
 			return (
 				<li key={index}>
-					<div className='currentBrewsList-brewText'>
-						<h2 className='currentBrewsList-brewName'>{brew.name + percentage}</h2>
-						<p className='currentBrewsList-brewSubtitle'>{brew.subtitle}</p>
+					<div className='genericBrewsList-brewText'>
+						<h2 className='genericBrewsList-brewName'>{brew.name + percentage}</h2>
+						<p className='genericBrewsList-brewSubtitle'>{brew.subtitle}</p>
 					</div>
 					{star}
 				</li>
@@ -44,7 +44,7 @@ class BreweryBrewsList extends Component {
 		});
 
 		return (
-			<div className='currentBrewsList-brews'>
+			<div className='genericBrewsList-brews'>
 				<ul>
 					{brews}
 				</ul>

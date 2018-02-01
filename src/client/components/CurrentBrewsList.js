@@ -34,9 +34,9 @@ class CurrentBrewsList extends Component {
 
 			return (
 				<li key={index}>
-					<div className='currentBrewsList-brewText'>
-						<h2 className='currentBrewsList-brewName'>{brew.name + percentage}</h2>
-						<p className='currentBrewsList-brewSubtitle'>{brew.subtitle}</p>
+					<div className='genericBrewsList-brewText'>
+						<h2 className='genericBrewsList-brewName'>{brew.name + percentage}</h2>
+						<p className='genericBrewsList-brewSubtitle'>{brew.subtitle}</p>
 					</div>
 					{star}
 				</li>
@@ -44,15 +44,15 @@ class CurrentBrewsList extends Component {
 		});
 
 		return (
-			<div className='currentBrewsList' id={this.props.id}>
-				<div className='currentBrewsList-header'>
-					<Link to={`/breweries/${this.props.brewery.code}`}><img className='currentBrewsList-breweryLogo' src={this.props.brewery.logo} /></Link>
-					<div className='currentBrewsList-breweryDetails'>
-						<Link to={`/breweries/${this.props.brewery.code}`}><h1 className='currentBrewsList-breweryName'>{this.props.brewery.name}</h1></Link>
-						<p className='currentBrewsList-lastUpdated'>Updated: {lastUpdated}</p>
+			<div className='genericBrewsList' id={this.props.id}>
+				<div className='genericBrewsList-header'>
+					<Link to={`/breweries/${this.props.brewery.code}`}><img className='genericBrewsList-breweryLogo' src={this.props.brewery.logo} /></Link>
+					<div className='genericBrewsList-breweryDetails'>
+						<Link to={`/breweries/${this.props.brewery.code}`}><h1 className='genericBrewsList-breweryName'>{this.props.brewery.name}</h1></Link>
+						<p className='genericBrewsList-lastUpdated'>Updated: {lastUpdated}</p>
 					</div>
 				</div>
-				<div className='currentBrewsList-brews'>
+				<div className='genericBrewsList-brews'>
 					<ul>
 						{brews}
 					</ul>

@@ -5,6 +5,10 @@ import UserDetailContainer from '../containers/UserDetailContainer';
 import UserFavoritesContainer from '../containers/UserFavoritesContainer';
 
 class UserMain extends Component {
+	componentDidMount() {
+		document.title = "Brews | " + this.props.user.name;
+	}
+
   render() {
     return (
 			<div id='userMain'>
@@ -16,4 +20,10 @@ class UserMain extends Component {
   }
 }
 
-export default connect(null, null)(UserMain);
+const mapStateToProps = (state) => {
+  return {
+		user: state.user
+  };
+}
+
+export default connect(mapStateToProps, null)(UserMain);

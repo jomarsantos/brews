@@ -12,35 +12,35 @@ class BreweryDetailContainer extends Component {
 			let links = [];
 			if (this.props.details.hasOwnProperty('website')) {
 				links.push(
-					<a class='breweryDetailContainer-link' id='breweryDetail_website' href={this.props.details.website} target="_blank">
+					<a className='breweryDetailContainer-link' id='breweryDetail_website' href={this.props.details.website} target="_blank">
 						<i className="breweryDetailContainer-linkIcon fa fa-globe" aria-hidden="true"></i>
 					</a>
 				);
 			}
 			if (this.props.details.hasOwnProperty('facebook')) {
 				links.push(
-					<a class='breweryDetailContainer-link' id='breweryDetail_facebook' href={this.props.details.facebook} target="_blank">
+					<a className='breweryDetailContainer-link' id='breweryDetail_facebook' href={this.props.details.facebook} target="_blank">
 						<i className="breweryDetailContainer-linkIcon fa fa-facebook-square" aria-hidden="true"></i>
 					</a>
 				);
 			}
 			if (this.props.details.hasOwnProperty('instagram')) {
 				links.push(
-					<a class='breweryDetailContainer-link' id='breweryDetail_instagram' href={'https://www.instagram.com/'+this.props.details.instagram} target="_blank">
+					<a className='breweryDetailContainer-link' id='breweryDetail_instagram' href={'https://www.instagram.com/'+this.props.details.instagram} target="_blank">
 						<i className="breweryDetailContainer-linkIcon fa fa-instagram" aria-hidden="true"></i>
 					</a>
 				);
 			}
 			if (this.props.details.hasOwnProperty('twitter')) {
 				links.push(
-					<a class='breweryDetailContainer-link' id='breweryDetail_twitter' href={'https://twitter.com/'+this.props.details.twitter} target="_blank">
+					<a className='breweryDetailContainer-link' id='breweryDetail_twitter' href={'https://twitter.com/'+this.props.details.twitter} target="_blank">
 						<i className="breweryDetailContainer-linkIcon fa fa-twitter-square" aria-hidden="true"></i>
 					</a>
 				);
 			}
 			if (this.props.details.hasOwnProperty('youtube')) {
 				links.push(
-					<a class='breweryDetailContainer-link' id='breweryDetail_youtube' href={this.props.details.youtube} target="_blank">
+					<a className='breweryDetailContainer-link' id='breweryDetail_youtube' href={this.props.details.youtube} target="_blank">
 						<i className="breweryDetailContainer-linkIcon fa fa-youtube-square" aria-hidden="true"></i>
 					</a>
 				);

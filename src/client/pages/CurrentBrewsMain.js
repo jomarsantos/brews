@@ -5,6 +5,10 @@ import CurrentBrewsFilter from '../containers/CurrentBrewsFilter';
 import CurrentBrewsContainer from '../containers/CurrentBrewsContainer';
 
 class CurrentBrewsMain extends Component {
+	componentDidMount() {
+    document.title = "Brews | Currently Brewing";
+  }
+
   render() {
     return (
 			<div id='currentBrewsMain'>

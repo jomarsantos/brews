@@ -9,10 +9,11 @@ export function fetchBrewery(breweryCode) {
         response => response.json(),
         error => console.log('An error occured.', error)
       )
-      .then(json =>
+      .then(json => {
 				// TODO: handle errors
-        dispatch(receiveBrewery(json))
-      )
+				document.title = "Brews | " + json.details.name;
+				dispatch(receiveBrewery(json));
+			})
   }
 }
 
