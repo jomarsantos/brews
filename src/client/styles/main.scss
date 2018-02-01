@@ -330,47 +330,60 @@ body {
 	break-inside: avoid;
   box-sizing: border-box;
 	width: 100%;
-	margin: 70px 0 20px 0;
+	margin: 20px 0;
 	padding: 0;
 	background-color: $containerBackgroundColor;
-	font: 14px $font;
+	font: 12px $font;
 	border-radius: 10px;
 	color: $brewsTextColor;
 
 	&-header {
-		padding: 10px 10px 0;
-	}
-
-	&-breweryLogo {
-		margin-top: -60px;
-		height: 80px;
-		width: 80px;
-		border-radius: 100%;
-		border-style: solid;
-		border-color: #FFFFFF;
-		border-width: 4px;
+		padding: 10px 10px 0px 10px;
 	}
 
 	&-breweryDetails {
-		height: 40px;
-		width: 100%;
-		padding: 10px 0 0 0;
+		padding: 10px;
+		display: flex;
+		border-radius: 10px;
+		background-color: $containerElementBackgroundColor;
 
 		a {
 			text-decoration: none;
 		}
 	}
 
+	&-breweryLogoLink {
+		display: inline-block;
+	}
+
+	&-breweryLogo {
+		height: 50px;
+		width: 50px;
+		border-radius: 100%;
+		vertical-align: middle;
+	}
+
+	&-breweryText {
+		width: 100%;
+		margin-left: 10px;
+		display: inline-block;
+		text-align: left;
+		vertical-align: middle;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
 	&-breweryName {
 		margin: 0;
-		font: 16px $font;
+		font: 12px $font;
+		letter-spacing: 1px;
 		color: $brewsHeaderTextColor;
 		text-transform: uppercase;
 	}
 
 	&-lastUpdated {
 		margin: 0;
-		font: 11px $font;
+		font: 10px $font;
 		color: $brewsUpdatedTextColor;
 	}
 
@@ -413,12 +426,11 @@ body {
 
 	&-brewname {
 		margin: 0;
-		font: 14px $font;
+		font: 12px $font;
 	}
 
 	&-brewSubtitle {
 		margin: 0;
-		font: 12px $font;
-		font-weight: 300;
+		font: 11px $font;
 	}
 }
