@@ -48,13 +48,27 @@ class BreweryDetailContainer extends Component {
 			if (links.length === 0) {
 				links = null;
 			}
+
+			let address = '';
+			if (this.props.details.hasOwnProperty('address')) {
+				address += this.props.details.address;
+			}
+			if (this.props.details.hasOwnProperty('city')) {
+				if (address) {
+					address += ", ";
+				}
+				address += this.props.details.city;
+			}
+
+
 			main = (
 				<div>
 					<img id='breweryDetailContainer-image' src={this.props.details.logo}/>
 					<br />
 					<div>
-						<h1 id ='breweryDetailContainer-name'>{this.props.details.name}</h1>
-						{links}
+						<h1 id='breweryDetailContainer-name'>{this.props.details.name}</h1>
+						<h2 id='breweryDetailContainer-address'>{address}</h2>
+					{links}
 					</div>
 				</div>
 			);
