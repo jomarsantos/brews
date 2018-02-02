@@ -262,6 +262,34 @@ a {
 	}
 }
 
+#breweryBrewsContainer {
+	text-align: center;
+
+	&-filters {
+	}
+
+	.chosenFilter {
+		font-weight: 700 !important;
+	}
+
+	.breweryBrewsContainer-filterButton {
+		font: 16px $font;
+		margin: 5px;
+		border: none;
+		cursor: pointer;
+
+		&:active {
+			outline: none;
+			border: none;
+		}
+
+		&:focus {
+			outline: none;
+			border: none;
+		}
+	}
+}
+
 ///////////////////////
 // Components
 ///////////////////////
