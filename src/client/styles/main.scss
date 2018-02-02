@@ -266,6 +266,7 @@ a {
 	text-align: center;
 
 	&-filters {
+		margin-top: 20px;
 	}
 
 	.chosenFilter {
@@ -508,6 +509,60 @@ a {
 		vertical-align: middle;
 		padding: 8px;
 		cursor: pointer;
+	}
+
+	&-brewText {
+		width: 200px;
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 10px;
+	}
+
+	&-brewname {
+		margin: 0;
+		font: 12px $font;
+	}
+
+	&-brewSubtitle {
+		margin: 0;
+		font: 11px $font;
+	}
+}
+
+.breweryBrewsList {
+	&-brews {
+		margin: 10px auto 100px auto;
+		width: auto;
+		background-color: $containerBackgroundColor;
+		padding: 5px;
+		width: 810px;
+		border-radius: 10px;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			text-align: left;
+
+
+			li {
+				background-color: $containerElementBackgroundColor;
+				border-radius: 10px;
+				padding: 10px;
+				width: 240px;
+				margin: 5px;
+				display: inline-block;				text-align: left;
+				vertical-align: middle;
+			}
+		}
+
+		#star {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 8px;
+			cursor: pointer;
+			font-size: 10px;
+		}
 	}
 
 	&-brewText {

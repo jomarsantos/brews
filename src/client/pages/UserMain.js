@@ -19,7 +19,7 @@ class UserMain extends Component {
     return (
 			<div id='userMain'>
 				<Header />
-				<h1 id='pageTitle'>MY FAVORITES</h1>
+				<h1 id='pageTitle'>MY FAVOURITES</h1>
 				<UserFavoritesContainer />
 			</div>
     );
