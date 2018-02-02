@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { filterCurrentBrews, clearFilteredBrews} from '../actions/currentBrews';
+import { filterCurrentBrews, clearFilteredBrews, favoritesOnlyToggle } from '../actions/currentBrews';
 
 class CurrentBrewsFilter extends Component {
 	constructor(props) {
@@ -20,11 +20,11 @@ class CurrentBrewsFilter extends Component {
 	  this.setState({brewInput: event.target.value}, () => this.filter());
 	}
 
-	filter() {
+	filter(favoritesOnly) {
 		let breweryInput = this.state.breweryInput.trim().toLowerCase();
 		let brewInput = this.state.brewInput.trim().toLowerCase();
 
-		this.props.filterCurrentBrews(breweryInput, brewInput);
+		this.props.filterCurrentBrews(breweryInput, brewInput, favoritesOnly);
 	}
 
 	clear(event) {
@@ -41,30 +41,56 @@ class CurrentBrewsFilter extends Component {
 	}
 
 	render() {
+		let favoritesOnlyButton = null;
+		if (this.props.user.id) {
+			let star = (
+				<i id='star' className="fa fa-star-o" aria-hidden="true"></i>
+			);
+			if (this.props.favoritesOnly) {
+				star = (
+					<i id='star' className="fa fa-star" aria-hidden="true"></i>
+				);
+			}
+			favoritesOnlyButton = (
+				<button type="button" onClick={() => this.filter(!this.props.favoritesOnly)}>{star}</button>
+			);
+		}
+
+
 		return(
 			<div id='currentBrewsFilter'>
+				{favoritesOnlyButton}
 				<input type="text" placeholder="BREWERY" name="title" value={this.state.breweryInput} onChange={this.handleBreweryChange.bind(this)}/>
 				<input type="text" placeholder="BREW" name="title" value={this.state.brewInput} onChange={this.handleBrewChange.bind(this)}/>
 				<button type="button" onClick={this.clear.bind(this)} className="">&#10005;</button>
 			</div>
 		);
 	}
+
+	componentWillUnmount() {
+		this.clear();
+	}
 }
 
 const mapStateToProps = (state) => {
   return {
 		filteredBrews: state.currentBrews.filteredBrews,
+		favoritesOnly: state.currentBrews.favoritesOnly,
+		user: state.user
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    filterCurrentBrews: (breweryInput, brewInput) => {
-      dispatch(filterCurrentBrews(breweryInput, brewInput));
+    filterCurrentBrews: (breweryInput, brewInput, favoritesOnly) => {
+      dispatch(filterCurrentBrews(breweryInput, brewInput, favoritesOnly));
     },
 		clearFilteredBrews: () => {
 			dispatch(clearFilteredBrews());
-		}
+		},
+		favoritesOnlyToggle: (setting) => {
+      dispatch(favoritesOnlyToggle(setting));
+    },
   }
 }
 

@@ -1,6 +1,7 @@
 export const RECEIVE_CURRENT_BREWS = 'RECEIVE_CURRENT_BREWS';
 export const UPDATE_FILTERED_BREWS = 'UPDATE_FILTERED_BREWS';
 export const CLEAR_FILTERED_BREWS = 'CLEAR_FILTERED_BREWS';
+export const SET_FAVORITES_ONLY_FILTER = 'SET_FAVORITES_ONLY_FILTER';
 
 export function fetchCurrentBrews() {
   return function (dispatch) {
@@ -25,7 +26,7 @@ export function receiveCurrentBrews(brews) {
   };
 }
 
-export function filterCurrentBrews(breweryInput, brewInput) {
+export function filterCurrentBrews(breweryInput, brewInput, favoritesOnly) {
   return (dispatch, getState) => {
     const state = getState();
 
@@ -50,25 +51,36 @@ export function filterCurrentBrews(breweryInput, brewInput) {
 				})
 				filteredBrews[index].currentTapLineup.brews = filteredBrewsOfBrewery;
 			})
+		}
 
-			filteredBrews = filteredBrews.filter(brewery => {
-				return brewery.currentTapLineup.brews.length !== 0;
+		if (favoritesOnly) {
+			let favorites = state.user.favorites;
+			filteredBrews.forEach((brewery, index) => {
+				let filteredBrewsOfBrewery = brewery.currentTapLineup.brews.filter(brew => {
+					return favorites.includes(brew._id);
+				})
+				filteredBrews[index].currentTapLineup.brews = filteredBrewsOfBrewery;
 			})
 		}
+
+		filteredBrews = filteredBrews.filter(brewery => {
+			return brewery.currentTapLineup.brews.length !== 0;
+		})
 
 		// No results, return error
 		if (filteredBrews.length === 0) {
 			filteredBrews = -1;
 		}
 
-		dispatch(updateFilteredBrews(filteredBrews));
+		dispatch(updateFilteredBrews(filteredBrews, favoritesOnly));
   };
 }
 
-export function updateFilteredBrews(filteredBrews) {
+export function updateFilteredBrews(filteredBrews, favoritesOnly) {
   return {
     type: UPDATE_FILTERED_BREWS,
 		filteredBrews: filteredBrews,
+		favoritesOnly: favoritesOnly
   };
 }
 
@@ -76,5 +88,13 @@ export function clearFilteredBrews() {
 	return {
 		type: CLEAR_FILTERED_BREWS,
 		filteredBrews: [],
+		favoritesOnly: false
+	};
+}
+
+export function favoritesOnlyToggle(setting) {
+	return {
+		type: SET_FAVORITES_ONLY_FILTER,
+		favoritesOnly: setting
 	};
 }
