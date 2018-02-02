@@ -13,11 +13,11 @@ class CurrentBrewsFilter extends Component {
   }
 
 	handleBreweryChange(event) {
-	  this.setState({breweryInput: event.target.value}, () => this.filter());
+	  this.setState({breweryInput: event.target.value}, () => this.filter(this.props.favoritesOnly));
 	}
 
 	handleBrewChange(event) {
-	  this.setState({brewInput: event.target.value}, () => this.filter());
+	  this.setState({brewInput: event.target.value}, () => this.filter(this.props.favoritesOnly));
 	}
 
 	filter(favoritesOnly) {
