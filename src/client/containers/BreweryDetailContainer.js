@@ -65,10 +65,10 @@ class BreweryDetailContainer extends Component {
 				<div>
 					<img id='breweryDetailContainer-image' src={this.props.details.logo}/>
 					<br />
-					<div>
+					<div id='breweryDetailContainer-text'>
 						<h1 id='breweryDetailContainer-name'>{this.props.details.name}</h1>
 						<h2 id='breweryDetailContainer-address'>{address}</h2>
-					{links}
+						{links}
 					</div>
 				</div>
 			);

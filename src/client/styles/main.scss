@@ -73,6 +73,10 @@ body {
 	border-radius: 10px;
 }
 
+a {
+	text-decoration: none;
+}
+
 ///////////////////////
 // Pages
 ///////////////////////
@@ -146,6 +150,11 @@ body {
 	font: 14px $font;
 	text-align: center;
 
+	&-text {
+		padding: 10px;
+		color: $primaryFontColor;
+	}
+
 	&-image {
 		height: 150px;
 		width: 150px;
@@ -158,13 +167,34 @@ body {
 
 	&-name {
 		border-radius: 20px;
-		padding: 10px 25px;
-		font-weight: 400;
+		padding: 0px;
 		margin: 10px 0 0 0;
-		display: inline-block;
-		background-color: $userNameBackgroundColor;
-		color: $userNameTextColor;
-		letter-spacing: 1px;
+		font: 48px $font;
+		font-weight: 900;
+		letter-spacing: 2px;
+		text-align: center;
+	}
+
+	&-address {
+		margin: 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: $primaryFontColor;
+	}
+
+	a:visited {
+		color: $primaryFontColor;
+	}
+
+	i {
+		font-size: 24px;
+		padding: 5px;
+
+		&:hover {
+			color: lighten($primaryFontColor, 20%);
+		}
 	}
 }
 
@@ -385,10 +415,6 @@ body {
 		padding: 20px 10px;
 		border-radius: 10px;
 		background-color: $containerElementBackgroundColor;
-
-		a {
-			text-decoration: none;
-		}
 	}
 
 	&-breweryLogoLink {
