@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 	status: 'loading',
 	details: {},
 	brews: [],
-	filter: 'all'
+	filter: 'current'
 };
 
 export default function(state = INITIAL_STATE, action) {

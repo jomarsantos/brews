@@ -39,16 +39,16 @@ class BreweryBrewsContainer extends Component {
 			<div id='breweryBrewsContainer'>
 				<div id='breweryBrewsContainer-filters'>
 					<button className={"breweryBrewsContainer-filterButton"
-						+ (this.props.filter === 'all' ? ' chosenFilter' : '')}
-						id="breweryBrewsContainer-allBrewsButton"
-						onClick={() => this.props.setFilter('all')}>
-						ALL BREWS
-					</button>
-					<button className={"breweryBrewsContainer-filterButton"
 						+ (this.props.filter === 'current' ? ' chosenFilter' : '')}
 						id="breweryBrewsContainer-currentBrewsButton"
 						onClick={() => this.props.setFilter('current')}>
 						CURRENTLY BREWING
+					</button>
+					<button className={"breweryBrewsContainer-filterButton"
+						+ (this.props.filter === 'all' ? ' chosenFilter' : '')}
+						id="breweryBrewsContainer-allBrewsButton"
+						onClick={() => this.props.setFilter('all')}>
+						ALL BREWS EVER MADE
 					</button>
 				</div>
 				{ main }
