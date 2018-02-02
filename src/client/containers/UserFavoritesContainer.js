@@ -22,7 +22,7 @@ class UserFavoritesContainer extends Component {
 			);
     } else if (this.props.favorites.length === 0) {
 			main = (
-				<div id="userFavoritesContainer-textOnlyContainer">
+				<div className="noResults">
 					<p>No brews currently favorited.</p>
 				</div>
 			);
@@ -68,6 +68,13 @@ class UserFavoritesContainer extends Component {
 						<FavoriteBrewsList id={'brewery'+index} key={brewery._id} brewery={brewery}/>
 					);
 				});
+			})
+
+			// Remove unused columns
+			columns.forEach((column, index) => {
+				if (column.length === 0) {
+					columns.splice(index);
+				}
 			})
 
 			// Create columns

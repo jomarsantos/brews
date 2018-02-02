@@ -64,6 +64,15 @@ body {
 	text-align: center;
 }
 
+.noResults {
+	margin: 10px;
+	padding: 30px 20px;
+	font: 16px $font;
+	color: $noResultTextColor;
+	text-align: center;
+	border-radius: 10px;
+}
+
 ///////////////////////
 // Pages
 ///////////////////////
@@ -91,16 +100,6 @@ body {
 	padding: 10px;
 	background-color: $backgroundColor;
 	text-align: center;
-
-	.noResults {
-		margin: 10px;
-		padding: 30px 20px;
-		background-color: $noResultBackgroundColor;
-		font: 16px $font;
-		color: $noResultTextColor;
-		text-align: center;
-		border-radius: 10px;
-	}
 
 	#genericBrewsContainer-columns {
 		width: 900px;
