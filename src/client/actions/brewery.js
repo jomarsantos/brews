@@ -32,7 +32,7 @@ export function resetBrewery() {
 		status: 'not_received',
 		details: {},
 		brews: [],
-		filter: 'all'
+		filter: 'current'
   };
 }
 
