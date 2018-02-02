@@ -1,35 +1,44 @@
 // General
-$font: 'Source Sans Pro', sans-serif;
-$primaryFontColor: #000000;
-$invertedFontColor: #ffffff;
-$lightFontColor: #b9b9b9;
-
-$backgroundColor: #282828;
-
 $black: #000000;
+$white: #ffffff;
+$dirtyWhite: #b9b9b9;
+$lightTan: #887e62;
 $tan: #73684b;
+$green: #374e2b;
+$darkGreen: #263c1b;
+$grey: #282828;
+
+$font: 'Lato', sans-serif;
+$primaryFontColor: $black;
+$secondaryFontColor: $white;
+
+$backgroundColor: $white;
 
 // Header
 $headerHeight: 60px;
-$headerBackgroundcolor: darken($backgroundColor, 2%);
-$headerTextColor: $lightFontColor;
-$loginButtonBackground: #1c263e;
-$logoutButtonBackground: #4b2727;
+$headerTextColor: $secondaryFontColor;
+$headerBackgroundColor: $white;
+$logoBackground: $black;
+$logoColor: $white;
+$userButtonBackground: $black;
+$userButtonColor: $white;
+$loginButtonBackground: #1d3f93;
+$logoutButtonBackground: #b83838;
 
 // Brews
-$containerBackgroundColor: $tan;
-$containerElementBackgroundColor: #887e62;
+$containerBackgroundColor: darken($white, 4%);
+$containerElementBackgroundColor: darken($white, 2%);
 $brewsHeaderTextColor: $primaryFontColor;
 $brewsUpdatedTextColor: $primaryFontColor;
 $brewsTextColor: $primaryFontColor;
 
 // Filter
-$filterBackgroundColor: darken($backgroundColor, 1%);
-$filterBorderInactiveColor: lighten($backgroundColor, 2%);
-$filterBorderActiveColor: lighten($backgroundColor, 10%);
-$filterInputTextColor: lighten($backgroundColor, 10%);
-$filterPlaceholderTextColor: lighten($backgroundColor, 3%);
-$filterLabelTextColor: lighten($backgroundColor, 4%);
+$filterBackgroundColor: darken($backgroundColor, 5%);
+$filterBorderInactiveColor: darken($backgroundColor, 5%);
+$filterBorderActiveColor: darken($backgroundColor, 8%);
+$filterInputTextColor: darken($backgroundColor, 20%);
+$filterPlaceholderTextColor: darken($backgroundColor, 15%);
+$filterLabelTextColor: darken($backgroundColor, 4%);
 $noResultTextColor: $primaryFontColor;
 $noResultBackgroundColor: $containerBackgroundColor;
 
@@ -44,6 +53,15 @@ $userNameTextColor: $black;
 body {
 	margin: 0;
 	background-color: $backgroundColor;
+}
+
+#pageTitle {
+	margin: 0;
+	padding: 30px 0;
+	font: 48px $font;
+	font-weight: 900;
+	letter-spacing: 2px;
+	text-align: center;
 }
 
 ///////////////////////
@@ -118,8 +136,8 @@ body {
 		font-weight: 400;
 		margin: 10px 0 0 0;
 		display: inline-block;
-		background-color: $userNameBackgroundColor;
-		color: $userNameTextColor;
+		background-color: $userButtonBackground;
+		color: $userButtonColor;
 		letter-spacing: 1px;
 	}
 }
@@ -153,8 +171,8 @@ body {
 
 #currentBrewsFilter {
 	background-color: $backgroundColor;
-	padding-top: 15px;
 	text-align: center;
+	padding-top: 40px;
 
 	p {
 		height: 20px;
@@ -225,10 +243,10 @@ body {
 	position: fixed;
 	left: 0;
 	top: 0;
-	background-color: $headerBackgroundcolor;
 	color: $headerTextColor;
 	font: 14px $font;
 	text-align: center;
+	background: $headerBackgroundColor;
 
 	a {
 		text-decoration: none;
@@ -243,11 +261,34 @@ body {
 		margin: 0;
 		padding: 20px;
 
-		font: 16px $font;
-		letter-spacing: 2px;
+		font: 14px $font;
+		letter-spacing: 1px;
 	}
 
-	#header-loginButton {
+	&-logoLink {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 10px;
+	}
+
+	&-logo {
+		height: $headerHeight - 20px;
+		text-align: center;
+		border-radius: 10px;
+		background-color: $logoBackground;
+		color: $logoColor;
+
+		h1 {
+			padding: 10px;
+		}
+
+		&:hover {
+			background-color: lighten($logoBackground, 20%);
+		}
+	}
+
+	&-loginButton {
 		padding: 10px 15px;
 		height: $headerHeight - 40px;
 		margin: 10px;
@@ -260,7 +301,7 @@ body {
 		right: 0;
 
 		&:hover {
-			background-color: darken($loginButtonBackground, 1%);
+			background-color: lighten($loginButtonBackground, 10%);
 		}
 
 		p {
@@ -274,7 +315,7 @@ body {
 		}
 	}
 
-	#header-loggedIn {
+	&-loggedIn {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -292,10 +333,10 @@ body {
 			border-radius: 10px;
 			cursor: pointer;
 			display: inline-block;
-			background-color: darken($headerBackgroundcolor, 1%);
+			background-color: $userButtonBackground;
 
 			&:hover {
-				background-color: darken($headerBackgroundcolor, 2%);
+				background-color: lighten($userButtonBackground, 20%);
 			}
 		}
 
@@ -315,7 +356,7 @@ body {
 				background-color: $logoutButtonBackground;
 
 				&:hover {
-					background-color: darken($logoutButtonBackground, 1%);
+					background-color: lighten($logoutButtonBackground, 5%);
 				}
 
 				i {
@@ -342,8 +383,7 @@ body {
 	}
 
 	&-breweryDetails {
-		padding: 10px;
-		display: flex;
+		padding: 20px 10px;
 		border-radius: 10px;
 		background-color: $containerElementBackgroundColor;
 
@@ -353,29 +393,29 @@ body {
 	}
 
 	&-breweryLogoLink {
-		display: inline-block;
+		display: block;
 	}
 
 	&-breweryLogo {
 		height: 50px;
 		width: 50px;
 		border-radius: 100%;
+		border-style: solid;
+		border-width: 6px;
+		border-color: $containerBackgroundColor;
 		vertical-align: middle;
 	}
 
 	&-breweryText {
 		width: 100%;
-		margin-left: 10px;
 		display: inline-block;
-		text-align: left;
+		text-align: center;
 		vertical-align: middle;
-		margin-top: auto;
-		margin-bottom: auto;
 	}
 
 	&-breweryName {
 		margin: 0;
-		font: 12px $font;
+		font: 14px $font;
 		letter-spacing: 1px;
 		color: $brewsHeaderTextColor;
 		text-transform: uppercase;

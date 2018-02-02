@@ -38,7 +38,11 @@ class Header extends Component {
 
 		return(
 			<div id='header'>
-				<Link to='/'><h1>BREWING IN VANCOUVER</h1></Link>
+				<Link to='/' id='header-logoLink'>
+					<div id='header-logo'>
+						<h1>Brews</h1>
+					</div>
+				</Link>
 				{ button }
 			</div>
 		);

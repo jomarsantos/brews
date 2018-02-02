@@ -13,6 +13,7 @@ class CurrentBrewsMain extends Component {
     return (
 			<div id='currentBrewsMain'>
 				<Header />
+				<h1 id='pageTitle'>CURRENTLY BREWING</h1>
 				<CurrentBrewsFilter />
 				<CurrentBrewsContainer />
 			</div>

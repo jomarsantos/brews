@@ -47,10 +47,9 @@ class CurrentBrewsList extends Component {
 			<div className='genericBrewsList' id={this.props.id}>
 				<div className='genericBrewsList-header'>
 					<div className='genericBrewsList-breweryDetails'>
-						<Link className='genericBrewsList-breweryLogoLink' to={`/breweries/${this.props.brewery.code}`}><img className='genericBrewsList-breweryLogo' src={this.props.brewery.logo} /></Link>
 						<div className='genericBrewsList-breweryText'>
 							<Link to={`/breweries/${this.props.brewery.code}`}><h1 className='genericBrewsList-breweryName'>{this.props.brewery.name}</h1></Link>
-							<p className='genericBrewsList-lastUpdated'>Updated: {lastUpdated}</p>
+							<p className='genericBrewsList-lastUpdated'>UPDATED: {lastUpdated}</p>
 						</div>
 					</div>
 				</div>
