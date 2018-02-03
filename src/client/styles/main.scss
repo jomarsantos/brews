@@ -221,6 +221,16 @@ a {
 	text-align: center;
 	padding-top: 40px;
 
+	@media screen and (max-width : 640px) {
+		margin-left: auto;
+		margin-right: auto;
+		width: 280px;
+
+		.currentBrewsFilter-inputNotLoggedIn {
+			width: 240px;
+		}
+	}
+
 	p {
 		height: 20px;
 		width: 80px;
@@ -243,6 +253,10 @@ a {
 		border: 2px solid $filterBorderInactiveColor;
 		text-transform: uppercase;
 		color: $filterInputTextColor;
+
+		@media screen and (max-width : 640px) {
+			font-size: 12px;
+		}
 	}
 
 	input::placeholder {
@@ -259,7 +273,6 @@ a {
 	}
 
 	button {
-		display: inline-block;
 		margin: 10px;
 		padding: 15px 18px;
 		font: 16px $font;
@@ -277,6 +290,24 @@ a {
 	button:focus {
 		outline: 0;
 		border: 2px solid $filterBorderActiveColor;
+	}
+
+	&-favoritesOnlyButton {
+		display: inline-block;
+	}
+
+	&-favoritesOnlyButtonMobile {
+		display: none;
+	}
+
+	@media screen and (max-width : 640px) {
+		&-favoritesOnlyButton {
+			display: none;
+		}
+
+		&-favoritesOnlyButtonMobile {
+			display: inline-block;
+		}
 	}
 }
 

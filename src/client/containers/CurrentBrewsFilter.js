@@ -41,8 +41,12 @@ class CurrentBrewsFilter extends Component {
 	}
 
 	render() {
+		let loggedIn = false;
+
 		let favoritesOnlyButton = null;
+		let favoritesOnlyButtonMobile = null;
 		if (this.props.user.id) {
+			loggedIn = true;
 			let star = (
 				<i id='star' className="fa fa-star-o" aria-hidden="true"></i>
 			);
@@ -52,7 +56,10 @@ class CurrentBrewsFilter extends Component {
 				);
 			}
 			favoritesOnlyButton = (
-				<button type="button" onClick={() => this.filter(!this.props.favoritesOnly)}>{star}</button>
+				<button id="currentBrewsFilter-favoritesOnlyButton" type="button" onClick={() => this.filter(!this.props.favoritesOnly)}>{star}</button>
+			);
+			favoritesOnlyButtonMobile = (
+				<button id="currentBrewsFilter-favoritesOnlyButtonMobile" type="button" onClick={() => this.filter(!this.props.favoritesOnly)}>{star}</button>
 			);
 		}
 
@@ -60,7 +67,9 @@ class CurrentBrewsFilter extends Component {
 		return(
 			<div id='currentBrewsFilter'>
 				{favoritesOnlyButton}
-				<input type="text" placeholder="BREWERY" name="title" value={this.state.breweryInput} onChange={this.handleBreweryChange.bind(this)}/>
+				<input className={(!loggedIn ? 'currentBrewsFilter-inputNotLoggedIn' : '')}
+					type="text" placeholder="BREWERY" name="title" value={this.state.breweryInput} onChange={this.handleBreweryChange.bind(this)}/>
+				{favoritesOnlyButtonMobile}
 				<input type="text" placeholder="BREW" name="title" value={this.state.brewInput} onChange={this.handleBrewChange.bind(this)}/>
 				<button type="button" onClick={this.clear.bind(this)} className="">&#10005;</button>
 			</div>
