@@ -6,10 +6,10 @@ import rootReducer from '../reducers';
 
 
 export default function configureStore(initialState) {
-  const finalCreateStore = compose(
-    applyMiddleware(thunkMiddleware, promise, logger),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )(createStore);
+	const enhancers = compose(
+		applyMiddleware(thunkMiddleware, promise, logger),
+		window.devToolsExtension ? window.devToolsExtension() : f => f
+	);
 
 	let persistedState = {};
 	if (localStorage.getItem('user')) {
@@ -17,8 +17,8 @@ export default function configureStore(initialState) {
 			user: JSON.parse(localStorage.getItem('user'))
 		}
 	}
-	
-  const store = finalCreateStore(rootReducer, persistedState);
+
+  const store = createStore(rootReducer, persistedState, enhancers);
 
 	store.subscribe(() => {
 	  localStorage.setItem('user', JSON.stringify(store.getState().user));

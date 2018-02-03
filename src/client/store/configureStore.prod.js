@@ -1,13 +1,34 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducers';
+import logger from 'redux-logger'
 import promise from 'redux-promise';
 import thunkMiddleware from 'redux-thunk'
-
-// Middleware you want to use in production:
-const enhancer = applyMiddleware(promise);
+import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
-  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
-  // See https://github.com/rackt/redux/releases/tag/v3.1.0
-  return createStore(thunkMiddleware, rootReducer, initialState, enhancer);
-};
+	const enhancers = compose(
+		applyMiddleware(thunkMiddleware, promise, logger)
+	);
+
+	let persistedState = {};
+	if (localStorage.getItem('user')) {
+		persistedState = {
+			user: JSON.parse(localStorage.getItem('user'))
+		}
+	}
+
+  const store = createStore(rootReducer, persistedState, enhancers);
+
+	store.subscribe(() => {
+	  localStorage.setItem('user', JSON.stringify(store.getState().user));
+	});
+
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+      const nextReducer = require('../reducers');
+      store.replaceReducer(nextReducer);
+    });
+  }
+
+  return store;
+}
