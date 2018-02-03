@@ -115,6 +115,10 @@ a {
 		margin: 10px;
 		display: inline-block;
 		vertical-align: top;
+
+		@media screen and (max-width : 940px) {
+			display: block;
+		}
 	}
 }
 
@@ -527,6 +531,17 @@ a {
 	&-brewSubtitle {
 		margin: 0;
 		font: 11px $font;
+		text-overflow: ellipsis;
+		word-break: break-all;
+		overflow:hidden;
+		white-space: nowrap;
+
+		&:hover {
+			text-overflow: none;
+			word-break: normal;
+			overflow: auto;
+			white-space: normal;
+		}
 	}
 }
 
@@ -552,7 +567,8 @@ a {
 				padding: 10px;
 				width: 240px;
 				margin: 5px;
-				display: inline-block;				text-align: left;
+				display: inline-block;
+				text-align: left;
 				vertical-align: middle;
 			}
 		}
@@ -581,5 +597,16 @@ a {
 	&-brewSubtitle {
 		margin: 0;
 		font: 11px $font;
+		text-overflow: ellipsis;
+		word-break: break-all;
+		overflow:hidden;
+		white-space: nowrap;
+
+		&:hover {
+			text-overflow: none;
+			word-break: normal;
+			overflow: auto;
+			white-space: normal;
+		}
 	}
 }

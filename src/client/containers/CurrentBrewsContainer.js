@@ -69,7 +69,7 @@ class CurrentBrewsContainer extends Component {
 				// Remove unused columns
 				columns.forEach((column, index) => {
 					if (column.length === 0) {
-						columns.slice(index, 1);
+						columns.splice(index);
 					}
 				})
 
