@@ -108,12 +108,13 @@ a {
 	#genericBrewsContainer-columns {
 		width: 900px;
 		margin: 0 auto;
+
 		@media screen and (max-width : 940px) {
-			width: 600px;
+			width: 550px;
 		}
 
-		@media screen and (max-width : 600px) {
-			width: 300px;
+		@media screen and (max-width : 640px) {
+			width: 280px;
 		}
 	}
 
@@ -124,7 +125,13 @@ a {
 		vertical-align: top;
 
 		@media screen and (max-width : 940px) {
+			margin: 0px;
 			display: block;
+			width: 550px;
+		}
+
+		@media screen and (max-width : 640px) {
+			width: 280px;
 		}
 	}
 }
@@ -498,12 +505,19 @@ a {
 		padding: 0 10px 10px 10px;
 		text-align: center;
 
+		@media screen and (max-width : 940px) {
+			padding: 0 5px 10px 5px;
+		}
+
 		ul {
 			margin: 0;
 			padding: 0;
 			list-style-type: none;
 			text-align: left;
 
+			@media screen and (max-width : 940px) {
+				margin-top: 5px;
+			}
 
 			li {
 				background-color: $containerElementBackgroundColor;
@@ -512,6 +526,18 @@ a {
 				margin-top: 10px;
 				text-align: left;
 				vertical-align: middle;
+
+				@media screen and (max-width : 940px) {
+					display: block;
+					width: 240px;
+					margin: 5px;
+					display: inline-block;
+				}
+
+				@media screen and (max-width : 640px) {
+					width: 240px;
+					display: inline-block;
+				}
 			}
 		}
 	}
@@ -548,6 +574,13 @@ a {
 			word-break: normal;
 			overflow: auto;
 			white-space: normal;
+		}
+
+		@media screen and (max-width : 640px) {
+			text-overflow: inherit;
+			word-break: normal;
+			overflow: visible;
+			white-space: normal;		
 		}
 	}
 }
