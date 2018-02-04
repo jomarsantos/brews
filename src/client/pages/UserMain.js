@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
+import ReactGA from 'react-ga';
 import Header from '../components/Header';
 import UserDetailContainer from '../containers/UserDetailContainer';
 import UserFavoritesContainer from '../containers/UserFavoritesContainer';
@@ -8,6 +9,7 @@ import UserFavoritesContainer from '../containers/UserFavoritesContainer';
 class UserMain extends Component {
 
 	componentDidMount() {
+		ReactGA.pageview(window.location.pathname);
 		if (this.props.user.id) {
 			document.title = "Brews | " + this.props.user.name;
 		} else {

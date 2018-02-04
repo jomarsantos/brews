@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 
@@ -11,6 +12,7 @@ import UserMain from './pages/UserMain';
 const store = configureStore();
 
 document.addEventListener('DOMContentLoaded', function() {
+	ReactGA.initialize('UA-113561333-1');
 	ReactDOM.render(
 		<Provider store={store}>
 	    <Router>
