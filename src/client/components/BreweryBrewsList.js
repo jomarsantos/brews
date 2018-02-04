@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import style from '../styles/main.scss';
 import util from '../util';
 import { toggleFavorite } from '../actions/favorites';
 
 class BreweryBrewsList extends Component {
+	toggleFavorite(brew) {
+		ReactGA.event({
+			category: this.props.brewery.name,
+			action: 'Favorite' + ' / ' + brew.name,
+			label: 'Brewery'
+		});
+		this.props.toggleFavorite(this.props.user, brew._id)
+	}
+
+	untoggleFavorite(brew) {
+		ReactGA.event({
+			category: this.props.brewery.name,
+			action: 'Unfavorite' + ' / ' + brew.name,
+			label: 'Brewery'
+		});
+		this.props.toggleFavorite(this.props.user, brew._id)
+	}
+
 	render() {
 		let loggedIn = false;
 		let favorites = false;
@@ -25,10 +44,10 @@ class BreweryBrewsList extends Component {
 			if (loggedIn) {
 				if (favorites.indexOf(brew._id) !== -1) {
 					star = <i id='star' className="fa fa-star" aria-hidden="true"
-						onClick={() => this.props.toggleFavorite(this.props.user, brew._id)}></i>;
+						onClick={() => this.untoggleFavorite(brew)}></i>;
 				} else {
 					star = <i id='star' className="fa fa-star-o" aria-hidden="true"
-						onClick={() => this.props.toggleFavorite(this.props.user, brew._id)}></i>;
+						onClick={() => this.toggleFavorite(brew)}></i>;
 				}
 			}
 

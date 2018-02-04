@@ -32,7 +32,7 @@ class BreweryBrewsContainer extends Component {
 				brews = this.props.brews;
 			}
 
-			main = <BreweryBrewsList brews={brews} publishedDate={this.props.details.currentTapLineup.publishedDate}/>;
+			main = <BreweryBrewsList brews={brews} brewery={this.props.details} publishedDate={this.props.details.currentTapLineup.publishedDate}/>;
 		}
 
 		return(
