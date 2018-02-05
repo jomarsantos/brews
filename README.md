@@ -35,10 +35,10 @@
 - In `brews/src/server/populators/populators.js` add an entry for the new entry for your populator (make sure that the property matches the brewery's code exactly)
 - To run lineup populators for all breweries:
 	- `cd src/server/populators`
-	- `node updateLineups.js`
+	- `node populateCurrentLineups.js.js`
 - To run lineup populators for a single brewery:
 	- `cd src/server/populators`
-	- `node updateLineups.js <brewery_code>`
+	- `node populateCurrentLineups.js.js <brewery_code>`
 ### Clear All Collection (Only Suggested For Development)
 - To clear all database collections:
 	- `cd src/server/populators`
