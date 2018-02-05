@@ -27,7 +27,7 @@ var config = require('../config');
 module.exports = [
 	{
 		code: 'brassneck',
-		logo: config.baseURL + '/images/logo_brassneck_dark.png',
+		logo: '/images/logo_brassneck_dark.png',
 		name: 'Brassneck Brewery',
 		description: 'The public space at Brassneck, i.e. the Growler Shop & Tasting Room are designed to have you, our customers feel as though you are part of our process. The brew house & cellar wrap around the tasting room & growler shop putting you in the very heart of the Brewery.',
 		address: '2148 Main Street',
@@ -46,7 +46,7 @@ module.exports = [
 	},
 	{
 		code: '33acres',
-		logo: config.baseURL + '/images/logo_33acres_dark.png',
+		logo: '/images/logo_33acres_dark.png',
 		name: '33 Acres Brewing Co.',
 		description: 'Our space is located in Vancouver near a synthesis of forest and the Pacific. Itʼs here weʼve carved out a space to foster collectivity and fine craft beer. We hold that quality product exists in solidarity with working among friends, family, and community. This is an inclusive space; we value innovation in both our craft and design. Our common area was created to align these fundamentals with the simple aesthetics of our surrounding environment.',
 		address: '15 W 8th Ave',
@@ -65,7 +65,7 @@ module.exports = [
 	},
 	{
 		code: 'strangefellows',
-	  logo: config.baseURL + '/images/logo_strangefellows_dark.png',
+	  logo: '/images/logo_strangefellows_dark.png',
 		name: 'Strange Fellows Brewing',
 		description: 'We are an East Vancouver craft brewery inspired by tradition and creativity, and go beyond the ordinary to celebrate that which is strange* and extraordinary. The beer we make is influenced both by old world traditions and West coast ingenuity as well as by seasonal ingredients. Our barrel programme promises unique aged beers, and we have a bit of a thing for sour beer.',
 		address: '1345 Clark Drive',
@@ -84,7 +84,7 @@ module.exports = [
 	},
 	{
 		code: 'steelandoak',
-		logo: config.baseURL + '/images/logo_steelandoak_dark.png',
+		logo: '/images/logo_steelandoak_dark.png',
 		name: 'Steel & Oak Brewing Co.',
 		description: 'Steel & Oak Brewing Co. embodies the modernness of today while remaining dedicated to the craftsmanship of years long past. Materials of strength and durability, steel and oak; house, protect and nurture what we stand for most – exceptional tasting craft beer.',
 		address: '1319 Third Ave',
@@ -103,7 +103,7 @@ module.exports = [
 	},
 	{
 		code: 'parallel49',
-		logo: config.baseURL + '/images/logo_parallel49_dark.png',
+		logo: '/images/logo_parallel49_dark.png',
 		name: 'Parallel 49 Brewing',
 		description: 'The story of Parallel 49 is a story of a brewery that strives to create clever and innovative beers that are highly drinkable. It’s a story that continues to meander and morph to this day.',
 		address: '1950 Triumph Street',
@@ -122,7 +122,7 @@ module.exports = [
 	},
 	{
 		code: 'dogwood',
-		logo: config.baseURL + '/images/logo_dogwood_dark.png',
+		logo: '/images/logo_dogwood_dark.png',
 		name: 'Dogwood Brewing',
 		description: 'Armed with the will and initiative to make an impact on the beer world, Claire and Brendan Wilson created Dogwood Brewing. Claire used her years of education and brewing experience throughout British Columbia and the UK to open Vancouver\'s first organic brewery: Dogwood Brewing.',
 		address: '8284 Sherbrooke Street',
@@ -141,7 +141,7 @@ module.exports = [
 	},
 	{
 		code: 'redtruck',
-		logo: config.baseURL + '/images/logo_redtruck_dark.png',
+		logo: '/images/logo_redtruck_dark.png',
 		name: 'Red Truck Beer',
 		description: 'Armed with the will and initiative to make an impact on the beer world, Claire and Brendan Wilson created Dogwood Brewing. Claire used her years of education and brewing experience throughout British Columbia and the UK to open Vancouver\'s first organic brewery: Dogwood Brewing.',
 		address: '295 East 1st Avenue',
@@ -160,7 +160,7 @@ module.exports = [
 	},
 	{
 		code: 'callister',
-		logo: config.baseURL + '/images/logo_callister_dark.png',
+		logo: '/images/logo_callister_dark.png',
 		name: 'Callister Brewing Co.',
 		description: 'Opening in July 2015, Callister Brewing has established firm roots in the ever-expanding brewing neighbourhood of East Vancouver. Located at 1338 Franklin St (one block north of Hastings at Clark), Callister Brewing bridges two major craft brewery hubs intersected by Hastings St.',
 		address: '1338 Franklin Street',
@@ -179,7 +179,7 @@ module.exports = [
 	},
 	{
 		code: 'strathcona',
-		logo: config.baseURL + '/images/logo_strathcona_dark.png',
+		logo: '/images/logo_strathcona_dark.png',
 		name: 'Strathcona Beer Company',
 		description: 'Strathcona Beer Company is driven to provide a premium, fresh and quality product. We were founded by an impassioned group of friends with deep rooted connections to our neighbourhood and an appreciation for local and international beer. We are proudly located in the heart of Strathcona, Vancouver’s oldest and most diverse commercial and residential neighbourhood.',
 		address: '895 East Hastings Street',
