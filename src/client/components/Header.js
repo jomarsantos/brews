@@ -40,7 +40,7 @@ class Header extends Component {
 			<div id='header'>
 				<Link to='/' id='header-logoLink'>
 					<div id='header-logo'>
-						<h1>Brews</h1>
+						<h1>Brewing</h1>
 					</div>
 				</Link>
 				{ button }

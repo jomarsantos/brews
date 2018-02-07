@@ -11,7 +11,7 @@ class UserMain extends Component {
 	componentDidMount() {
 		ReactGA.pageview(window.location.pathname);
 		if (this.props.user.id) {
-			document.title = "Brews | " + this.props.user.name;
+			document.title = "Brewing | " + this.props.user.name;
 		} else {
 			this.props.history.push('/')
 		}

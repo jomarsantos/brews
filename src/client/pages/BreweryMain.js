@@ -7,7 +7,7 @@ import BreweryBrewsContainer from '../containers/BreweryBrewsContainer';
 
 class BreweryMain extends Component {
 	componentDidMount() {
-		document.title = "Brews";
+		document.title = "Brewing";
 		ReactGA.pageview(window.location.pathname);
 	}
 
