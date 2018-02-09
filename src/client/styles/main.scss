@@ -7,6 +7,7 @@ $tan: #73684b;
 $green: #374e2b;
 $darkGreen: #263c1b;
 $grey: #282828;
+$lightGrey: #eeeeef;
 
 $font: 'Lato', sans-serif;
 $primaryFontColor: $black;
@@ -31,6 +32,7 @@ $containerElementBackgroundColor: darken($white, 2%);
 $brewsHeaderTextColor: $primaryFontColor;
 $brewsUpdatedTextColor: $primaryFontColor;
 $brewsTextColor: $primaryFontColor;
+$breweryHeaderHover: $lightGrey;
 
 // Filter
 $filterBackgroundColor: darken($backgroundColor, 5%);
@@ -537,8 +539,9 @@ a {
 		padding: 20px 10px;
 		border-radius: 10px;
 		background-color: $containerElementBackgroundColor;
+		transition: all 0.5s ease;
 		&:hover {
-			background-color: lighten($containerElementBackgroundColor, 1%);
+			background-color: $breweryHeaderHover;
 		}
 	}
 

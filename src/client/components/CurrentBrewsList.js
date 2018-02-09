@@ -64,16 +64,16 @@ class CurrentBrewsList extends Component {
 
 		return (
 			<div className='genericBrewsList' id={this.props.id}>
-				<Link to={`/breweries/${this.props.brewery.code}`}>
-					<div className='genericBrewsList-header'>
+				<div className='genericBrewsList-header'>
+					<Link to={`/breweries/${this.props.brewery.code}`}>
 						<div className='genericBrewsList-breweryDetails'>
 							<div className='genericBrewsList-breweryText'>
 								<h1 className='genericBrewsList-breweryName'>{this.props.brewery.name}</h1>
 								<p className='genericBrewsList-lastUpdated'>UPDATED: {lastUpdated}</p>
 							</div>
 						</div>
-					</div>
-				</Link>
+					</Link>
+				</div>
 				<div className='genericBrewsList-brews'>
 					<ul>
 						{brews}

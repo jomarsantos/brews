@@ -64,11 +64,13 @@ class FavoriteBrewsList extends Component {
 		return (
 			<div className='genericBrewsList' id={this.props.id}>
 				<div className='genericBrewsList-header'>
-					<div className='genericBrewsList-breweryDetails'>
-						<div className='genericBrewsList-breweryText'>
-							<Link to={`/breweries/${this.props.brewery.code}`}><h1 className='genericBrewsList-breweryName'>{this.props.brewery.name}</h1></Link>
+					<Link to={`/breweries/${this.props.brewery.code}`}>
+						<div className='genericBrewsList-breweryDetails'>
+							<div className='genericBrewsList-breweryText'>
+								<h1 className='genericBrewsList-breweryName'>{this.props.brewery.name}</h1>
+							</div>
 						</div>
-					</div>
+					</Link>
 				</div>
 				<div className='genericBrewsList-brews'>
 					<ul>
