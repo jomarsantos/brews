@@ -17,6 +17,7 @@ class CurrentBrewsMain extends Component {
 				<Header />
 				<h1 id='pageTitle'>CURRENTLY BREWING</h1>
 				<CurrentBrewsFilter />
+				<h3 id='currentBrewsMain-breweriesClickableNote'>CLICK ON BREWERIES FOR MORE INFO</h3>
 				<CurrentBrewsContainer />
 			</div>
     );

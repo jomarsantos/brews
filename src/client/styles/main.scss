@@ -88,6 +88,17 @@ a {
 #currentBrewsMain {
 	width: 100%;
 	margin: $headerHeight 0 0 0;
+
+	&-breweriesClickableNote {
+		margin: 30px 0 0 0;
+		text-align: center;
+		font: 18px $font;
+		color: darken($backgroundColor, 10%);
+
+		@media screen and (max-width : 640px) {
+			font-size: 12px;
+		}
+	}
 }
 
 #userMain {
